@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from authentication.models import FacebookProfile
 
-# Create your views here.
+# Create your views here. AA
 
 def king(request):
 	if request.method == 'GET':
