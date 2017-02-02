@@ -128,4 +128,5 @@ AUTHENTICATION_BACKENDS = (
     # ... your other backends
     'authentication.auth_backend.PasswordlessAuthBackend',
     #'music.auth_backend.OnlynameandsurnameAuth',
+    ('django.contrib.auth.backends.ModelBackend'),
 )
