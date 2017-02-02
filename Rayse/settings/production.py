@@ -52,6 +52,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'Rayse.urls'
 
+DEFAULT_REDIRECT_URL ="http://www.rayse.com"
+PARENT_HOST ="rayse.com"
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
