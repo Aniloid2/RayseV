@@ -25,7 +25,7 @@ SECRET_KEY = 'm(g=-7__2jvuxkpw(^z3*x-o&n%-des*bet-1%u#rg3mdob9%7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["www.rayse.com", 'rayse.herokuapp.com/']
+ALLOWED_HOSTS = ["www.rayse.com", 'rayse.herokuapp.com']
 
 
 # Application definition
