@@ -18,9 +18,11 @@ import random
 def home(request):
 
 	if request.method == "GET":
-		print "got request"
+		print ("got request")
 		users = FacebookProfile.objects.all()
 		total_users = users.count()
+
+		print (total_users)
 
 		ids =[]
 		for item in users:
@@ -30,6 +32,8 @@ def home(request):
 
 		ids_shuffled = random.sample(ids, 3)
 
+		print (ids_shuffled)
+
 
 
 		user_1 = FacebookProfile.objects.get(pk = ids_shuffled[0])
@@ -38,7 +42,7 @@ def home(request):
 
 		#we need to do a test to see if what is passed is profile
 		#I think it is . this neasn we can call by profile.user.name
-
+		print (user_1)
 	
 
 
