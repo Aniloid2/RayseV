@@ -41,7 +41,7 @@ def login_user(request):
 		if has_account:
 			print ('this has account')
 			login(request, has_account)
-			return HttpResponseRedirect('/home')
+			return HttpResponseRedirect('/home/')
 		else:
 
 			id_ = request.POST.get('username')
@@ -79,4 +79,15 @@ def login_user(request):
 
 
 			#profile.save()
-			return HttpResponseRedirect('/home')
+			return HttpResponseRedirect('/home/')
+
+
+
+#things to do: from FB we only get name, profile picture. Create
+#template for form, has gender and age, (email optional)
+
+#static file on server
+
+#comunication app
+
+#

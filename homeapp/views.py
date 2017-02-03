@@ -18,6 +18,7 @@ import random
 def home(request):
 
 	if request.method == "GET":
+		print "got request"
 		users = FacebookProfile.objects.all()
 		total_users = users.count()
 
