@@ -79,8 +79,11 @@ WSGI_APPLICATION = 'Rayse.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'HeroFeeder',
+        'USER': 'bf0c043e4ac4f7',
+        'PASSWORD': '334142750',
+        'HOST': 'eu-cdbr-azure-north-e.cloudapp.net',
     }
 }
 
