@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['rayse.com', 'rayse.herokuapp.com']
 INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'homeapp.apps.HomeappConfig',
-    'kingsapp.apps.KingappConfig',
+    'kingapp.apps.KingappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
