@@ -83,13 +83,15 @@ WSGI_APPLICATION = 'Rayse.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'herofeeder',
+        'NAME': 'acsm_931a4edcec08fcb',
         'USER': 'bf0c043e4ac4f7',
         'PASSWORD': '33414275',
         'HOST': 'eu-cdbr-azure-north-e.cloudapp.net',
         'PORT': '3306'
     }
 }
+
+#acsm_931a4edcec08fcb
 
 
 # Update database configuration with $DATABASE_URL.
