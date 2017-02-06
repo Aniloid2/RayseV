@@ -32,6 +32,8 @@ ALLOWED_HOSTS = ['rayse.com', 'rayse.herokuapp.com']
 
 INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
+    'homeapp.apps.HomeappConfig',
+    'kingsapp.apps.KingappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -96,9 +98,9 @@ DATABASES = {
 
 # Update database configuration with $DATABASE_URL.
 
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+# import dj_database_url
+# db_from_env = dj_database_url.config()
+# DATABASES['default'].update(db_from_env)
 
 
 # Password validation
