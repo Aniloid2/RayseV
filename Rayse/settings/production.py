@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'HeroFeeder',
         'USER': 'bf0c043e4ac4f7',
-        'PASSWORD': '334142750',
+        'PASSWORD': '33414275',
         'HOST': 'eu-cdbr-azure-north-e.cloudapp.net',
     }
 }
