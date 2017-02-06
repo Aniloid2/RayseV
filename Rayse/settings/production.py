@@ -76,6 +76,9 @@ WSGI_APPLICATION = 'Rayse.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+# posgress psycopg2==2.6.2
+# mysql-python MySQL-python==1.2.5
+# mysqlclient mysqlclient==1.3.9
 
 DATABASES = {
     'default': {
