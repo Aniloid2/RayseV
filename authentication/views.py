@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 #link with app forms
 from .forms import FacebookUserForm, FacebookProfileForm
 
+
 from django.contrib.auth.models import User
 
 #miscaleneous packages

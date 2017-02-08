@@ -9,6 +9,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 #models from authentification app
 from authentication.models import FacebookProfile
 
+from .forms import ModtestForm
+
+from .models import Modtest
+
+from django.contrib.auth import authenticate, login, logout
+
 
 #miscaleneous packages
 import re
@@ -72,3 +78,29 @@ def home(request):
 			user.save()
 
 		return HttpResponseRedirect('/home/')
+
+def Modtest(request):
+	if request.method == "GET":
+		return render(request, 'homeapp/Modtest.html')
+
+	if request.method == "POST":
+		randname = request.POST.get('nameof')
+		test_model = ModtestForm(data= request.POST)
+		
+		a =authenticate(name = randname)
+		print (a)
+		if a:
+			print 'Got account'
+			login(request, a)
+
+		else:
+			print (randname, a)
+			profile = test_model.save()
+			profile.nameof = randname
+			print (randname, a)
+
+
+			profile.save()
+
+
+		return HttpResponseRedirect('/mod')

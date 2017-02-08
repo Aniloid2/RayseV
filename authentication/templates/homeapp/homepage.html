@@ -23,6 +23,19 @@
 
 
 	function detectPositionAndUpdateUser(position , user){
+		console.log('Welcome!  Fetching your information.... ');
+		console.log(user);
+
+		for (var i = 0; i <= series_user.length-1; i++){
+			if (series_user[i] == user){
+				console.log('user at i', series_user[i]);
+				console.log('they are equal!');
+				position = 'Bye';
+			}
+		}
+
+		
+
 		if (position == 'one'){
 			document.getElementById('one').innerHTML = time;
 			series_user.push(user);
@@ -47,6 +60,19 @@
 		// 		csrfmiddlewaretoken: '{{ csrf_token}}', 
 		// 		data:{'series_user':series_user}
 		// 	});
+		//console.log('length', series_user.length);
+		//for (var i = series_user.length; i )
+		//b = series_user[series_user.length -1];
+		
+		// for (var i = 0; i < series_user.length - 1 ; i++) {
+		// 	console.log('hi');
+		// 	if (series_user[i] == series_user[i+1])
+		// 	{
+		// 		console.log('YES');
+		// 		time = time - 2
+		// 	}
+
+		// };
 		if (time == 4){
 			document.form_user_order.user_1.value = series_user[0];
 			document.form_user_order.user_2.value = series_user[1];

@@ -19,6 +19,7 @@ from django.contrib import admin
 from authentication.views import login_user
 from homeapp.views import home
 from kingapp.views import king
+from homeapp.views import Modtest
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -31,5 +32,8 @@ urlpatterns = [
 
     #kingapp
     url(r'^king/$', king, name="king"),
+
+    #test url
+    url(r'^mod/$', Modtest, name="mod"),
 
 ]

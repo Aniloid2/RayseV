@@ -12,7 +12,6 @@ from django import forms
 class FacebookProfile(models.Model):
 	user = models.OneToOneField(User, on_delete = models.CASCADE)
 
-
 	id = models.PositiveIntegerField(primary_key = True)
 	#name = models.CharField(max_length = 200, null = True)
 	year_formed = models.PositiveIntegerField(default = 0)
