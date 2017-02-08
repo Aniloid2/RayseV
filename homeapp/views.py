@@ -85,20 +85,22 @@ def Modtest(request):
 
 	if request.method == "POST":
 		randname = request.POST.get('nameof')
-		test_model = ModtestForm(data= request.POST)
-		
+		test_model = ModtestForm()
+		test_user = Moduser(data=request.POST)
+
 		a =authenticate(name = randname)
 		print (a)
 		if a:
-			print 'Got account'
+			print ('Got account')
 			login(request, a)
 
 		else:
 			print (randname, a)
-			profile = test_model.save()
+			user = test_user.save()
+			profile = test_model.save(commit = False)
+			profile.user = user
 			profile.nameof = randname
 			print (randname, a)
-
 
 			profile.save()
 
