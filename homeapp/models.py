@@ -13,7 +13,7 @@ class Modtest(models.Model):
 
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-	nameof = models.CharField(max_length = 1000, null = True)
+	nameof = models.PositiveIntegerField(primary_key = True)
 
 
 

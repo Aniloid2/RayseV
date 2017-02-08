@@ -11,7 +11,7 @@ class ModtestForm(forms.ModelForm):
         fields = ('nameof',)
 
 
-class Moduser(forms.ModelForm):
+class ModuserForm(forms.ModelForm):
 	class Meta:
 		model = User
 		fields = ('username',)
