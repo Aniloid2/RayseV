@@ -43,6 +43,8 @@ def Register_login(request):
 		webpull = request.POST.get('webpull')
 		username_id = request.POST.get('username_id')
 
+		print (first_name, last_name, username_id)
+
 		auth_user = authenticate(name = username_id)
 
 		if auth_user:
@@ -55,7 +57,11 @@ def Register_login(request):
 			print ('this user has not got account... creating')
 			user = MyUser.objects.create_user(username_id = username_id , first_name = first_name, last_name = last_name)
 
+			print ('MyUser has been created')
+
 			FacebookProfile.objects.create(user = user, webpull = webpull)
+
+			print ('Barebones put in place, Linked with FacebookProfile')
 
 
 			facebook_from_backend = MyUser.objects.get(username_id = username_id)
