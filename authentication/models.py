@@ -34,7 +34,7 @@ class MyUserManager(BaseUserManager):
 
 #class of facebook profile 
 class MyUser(AbstractBaseUser):
-	username_id = models.PositiveIntegerField(
+	username_id = models.BigIntegerField(
 		verbose_name='username_id',
 		primary_key = True,
 	)

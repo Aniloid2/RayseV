@@ -60,12 +60,14 @@ def Register_login(request):
 				pass
 			except Exception as e:
 				print (e)
-				
+
 
 			print ('MyUser has been created')
-
-			FacebookProfile.objects.create(user = user, webpull = webpull)
-
+			try:
+				FacebookProfile.objects.create(user = user, webpull = webpull)
+			except Exception as e:
+				print (e)
+				
 			print ('Barebones put in place, Linked with FacebookProfile')
 
 
