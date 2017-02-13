@@ -59,6 +59,9 @@ class MyUser(AbstractBaseUser):
 
 	objects = MyUserManager()
 
+	class Meta:
+		managed = True
+
 
 
 	def get_username_id(self):
@@ -121,5 +124,7 @@ class FacebookProfile(models.Model):
 		default = 0, 
 		editable =True,
 		)
+	class Meta:
+		managed = True
 
 	
