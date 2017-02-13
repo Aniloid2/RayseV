@@ -20,9 +20,6 @@ from django.contrib.auth import authenticate, login, logout
 
 
 
-# Create your views here.
-# at add account, send im to logout url, then to logout view, if get loghim out and send to register_login
-
 def Register_login(request):
 	if request.method =="GET":
 		if  request.user.is_authenticated:
@@ -60,7 +57,6 @@ def Register_login(request):
 
 			FacebookProfile.objects.create(user = user, webpull = webpull)
 
-			## small test to check user is right ##
 
 			facebook_from_backend = MyUser.objects.get(username_id = username_id)
 			print ('first name retrived', facebook_from_backend.first_name)
@@ -73,14 +69,6 @@ def Register_login(request):
 
 
 
-#things to do: from FB we only get name, profile picture. Create
-#template for form, has gender and age, (email optional)
-
-#static file on server
-
-#comunication app
-
-#
 def logoutZ(request):
 	if request.method == "GET":
 		logout(request)
