@@ -85,16 +85,15 @@ WSGI_APPLICATION = 'Rayse.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'acsm_6da958435f55a47',
-        'USER': 'ba89cf718d9c13',
-        'PASSWORD': '418662b6',
+        'NAME': 'acsm_2538726c15bef82',
+        'USER': 'bffd1aac6afd3d',
+        'PASSWORD': 'd726ae8b',
         'HOST': 'eu-cdbr-azure-north-e.cloudapp.net',
         'PORT': '3306'
     }
 }
 
-#Database=acsm_6da958435f55a47;Data Source=eu-cdbr-azure-north-e.cloudapp.net;User Id=ba89cf718d9c13;Password=418662b6
-
+#Database=acsm_2538726c15bef82;Data Source=eu-cdbr-azure-north-e.cloudapp.net;User Id=bffd1aac6afd3d;Password=d726ae8b
 #acsm_931a4edcec08fcb
 
 
