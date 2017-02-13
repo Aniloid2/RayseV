@@ -85,16 +85,15 @@ WSGI_APPLICATION = 'Rayse.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'acsm_2538726c15bef82',
-        'USER': 'bffd1aac6afd3d',
-        'PASSWORD': 'd726ae8b',
+        'NAME': 'acsm_a93082fed4c4e25',
+        'USER': 'b987b1989db102',
+        'PASSWORD': '16bc1066',
         'HOST': 'eu-cdbr-azure-north-e.cloudapp.net',
         'PORT': '3306'
     }
 }
 
-#Database=acsm_2538726c15bef82;Data Source=eu-cdbr-azure-north-e.cloudapp.net;User Id=bffd1aac6afd3d;Password=d726ae8b
-#acsm_931a4edcec08fcb
+#Database=acsm_a93082fed4c4e25;Data Source=eu-cdbr-azure-north-e.cloudapp.net;User Id=b987b1989db102;Password=16bc1066
 
 
 # Update database configuration with $DATABASE_URL.
