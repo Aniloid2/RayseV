@@ -55,7 +55,12 @@ def Register_login(request):
 
 		else:
 			print ('this user has not got account... creating')
-			user = MyUser.objects.create_user(username_id = username_id , first_name = first_name, last_name = last_name)
+			try :
+				user = MyUser.objects.create_user(username_id = username_id , first_name = first_name, last_name = last_name)
+				pass
+			except Exception as e:
+				print (e)
+				
 
 			print ('MyUser has been created')
 
