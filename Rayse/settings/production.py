@@ -144,7 +144,13 @@ STATIC_URL = '/static/'
 
 AUTHENTICATION_BACKENDS = (
     # ... your other backends
-    'authentication.auth_backend.PasswordlessAuthBackend',
+    #'authentication.auth_backend.PasswordlessAuthBackend',
     #'music.auth_backend.OnlynameandsurnameAuth',
-    ('django.contrib.auth.backends.ModelBackend'),
+    'django.contrib.auth.backends.ModelBackend',
+    'authentication.auth_backend.ClanModtest',
 )
+
+
+AUTH_USER_MODEL = 'authentication.MyUser'
+
+#we want to add to dit, branch and swap back to master celan and deploy

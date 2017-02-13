@@ -92,9 +92,9 @@
       document.Facebookdata.last_name.value = fullName_list[1];
 
 
-    	document.Facebookdata.username.value = response.id;
+    	document.Facebookdata.username_id.value = response.id;
     	document.Facebookdata.webpull.value = response.picture.data.url;
-    	console.log(response.year_formed);
+    	console.log(response.age);
 
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
@@ -120,7 +120,7 @@
 	{%csrf_token %}
 	<input type="text" name="first_name">
   <input type="text" name="last_name">
-	<input type="text" name="username">
+	<input type="text" name="username_id">
 	<input type="text" name="webpull">
 
 </form>

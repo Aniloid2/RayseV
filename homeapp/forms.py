@@ -2,17 +2,17 @@
 from django import forms
 from django.contrib.auth.models import User
 
-from .models import Modtest
+#from homeapp.models import ModtestMod
 
 
-class ModtestForm(forms.ModelForm):
-    class Meta:
-        model = Modtest
-        fields = ('nameof',)
+# class ModtestForm(forms.ModelForm):
+#     class Meta:
+#         model = Modtest
+#         fields = ('nameof',)
 
 
-class ModuserForm(forms.ModelForm):
-	class Meta:
-		model = User
-		fields = ('username',)
+# class ModuserForm(forms.ModelForm):
+# 	class Meta:
+# 		model = User
+# 		fields = ('username',)
 

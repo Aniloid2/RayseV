@@ -1,8 +1,11 @@
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.models import User
 
-from homeapp.models import Modtest
+#from homeapp.models import Modtest
 
+from authentication.models import MyUser
+
+## good examples but can go ##
 class PasswordlessAuthBackend(ModelBackend):
 
 	def authenticate(self, username = None):
@@ -22,8 +25,17 @@ class PasswordlessAuthBackend(ModelBackend):
 class Anotherpasslessauth(ModelBackend):
 	def authenticate(self, name = None):
 		print ('im in')
+
 		try:
 			return Modtest.objects.get(nameof = name)
 		except:
 			return None
 
+class ClanModtest(ModelBackend):
+	def authenticate(self, name=None):
+		print ('authenticating....')
+		try :
+			return MyUser.objects.get(username_id = name)
+		except Exception as e:
+			print (e)
+			return None

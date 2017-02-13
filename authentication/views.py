@@ -3,10 +3,13 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 
 #link with app forms
+
 from .forms import FacebookUserForm, FacebookProfileForm
 
+#link to app models
 
-from django.contrib.auth.models import User
+from authentication.models import MyUser , FacebookProfile
+
 
 #miscaleneous packages
 import re
@@ -18,69 +21,55 @@ from django.contrib.auth import authenticate, login, logout
 
 
 # Create your views here.
+# at add account, send im to logout url, then to logout view, if get loghim out and send to register_login
 
+def Register_login(request):
+	if request.method =="GET":
+		if  request.user.is_authenticated:
+			print ('getting page for specific user')
 
-def login_user(request):
-	if request.method == 'GET':
-		print ('im here')
-
-		return render(request, "authapp/login_user.html")
-	if request.method == "POST":
-		print ('ive been posted')
-		first_name = request.POST.get('first_name')
-		last_name = request.POST.get('last_name')
-		username = request.POST.get('username')
-		birthday =  "undefined"
-		print (first_name, last_name, username)
-
-		facebook_user = FacebookUserForm(data=request.POST)
-		facebook_profile = FacebookProfileForm()
-
-		has_account = authenticate(username = username)
-		print (has_account)
-
-		if has_account:
-			print ('this has account')
-			login(request, has_account)
 			return HttpResponseRedirect('/home/')
 		else:
+			print ('getting login page for anonimus user')
+			return render(request, 'authapp/login_user.html')
 
-			id_ = request.POST.get('username')
-			webpull = request.POST.get('webpull')
+	if request.method == "POST":
+		print ('recived data from anonimus user')
+		#load forms 
+		user_form = FacebookUserForm(data = request.POST)
+		profile_form = FacebookProfileForm()
 
-			if birthday == "undefined":
-				print ('im emplty')	
-				birthday = random.randint(1993,1998)
-			else:
-				birthday = re.findall(r"[0-9][0-9][0-9][0-9]$", birthday)[0]
 
-			print (id_, birthday, webpull)
 
-			print (facebook_user)
+		first_name = request.POST.get('first_name')
+		last_name = request.POST.get('last_name')
+		webpull = request.POST.get('webpull')
+		username_id = request.POST.get('username_id')
 
-			user = facebook_user.save()
-			profile = facebook_profile.save(commit = False)
-			profile.user = user
-			profile.webpull = webpull
-			profile.id = id_
+		auth_user = authenticate(name = username_id)
 
-			## steal birtday fucntion from log 
-			# move to new database facebook (neeed to change all artists to facebookprofile)
-			profile.year_formed = birthday
-			profile.save()
+		if auth_user:
+			print ('this user has an account')
+			login(request, auth_user)
+			print ('this user has been logged in')
+			return HttpResponseRedirect("/home/")
 
-			##face acount email = BB
+		else:
+			print ('this user has not got account... creating')
+			user = MyUser.objects.create_user(username_id = username_id , first_name = first_name, last_name = last_name)
+
+			FacebookProfile.objects.create(user = user, webpull = webpull)
+
+			## small test to check user is right ##
+
+			facebook_from_backend = MyUser.objects.get(username_id = username_id)
+			print ('first name retrived', facebook_from_backend.first_name)
+
+			auth_user = authenticate(name = username_id)
+			login(request, auth_user)
 			
-			
-
-			#authenticate user. then log him in.
-			#user = authenticate(username = profile.user.username)
-			now_has_account = authenticate(username = username)
-			login(request, now_has_account)
-
-
-			#profile.save()
 			return HttpResponseRedirect('/home/')
+
 
 
 
@@ -92,3 +81,7 @@ def login_user(request):
 #comunication app
 
 #
+def logoutZ(request):
+	if request.method == "GET":
+		logout(request)
+		return HttpResponseRedirect('/login/')

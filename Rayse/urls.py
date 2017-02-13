@@ -16,16 +16,16 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from authentication.views import login_user
+from authentication.views import Register_login, logoutZ
 from homeapp.views import home
 from kingapp.views import king
-from homeapp.views import Modtest
+#from homeapp.views import Modtest
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     #authentification app
-    url(r'^login/$', login_user, name="login"),
+    url(r'^login/$', Register_login, name="login"),
 
     #homeapp
     url(r'^home/$', home, name="home"),
@@ -33,7 +33,10 @@ urlpatterns = [
     #kingapp
     url(r'^king/$', king, name="king"),
 
-    #test url
-    url(r'^mod/$', Modtest, name="mod"),
+    url(r'^logout/$', logoutZ, name = "logoutZ"),
+
+    #test url#####ARCHIVE####
+    
+    #url(r'^mod/$', Modtest, name="mod"),
 
 ]

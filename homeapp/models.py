@@ -1,26 +1,8 @@
-from django.db import models
-
-# Create your models here.
 
 
-from django.forms import ModelForm
+#custom user model
+# edit settings file with AUTH_USER_MODEL = 'myapp.MyUser' 
+#MyUser is a django model
+#one to one fields to link myuser to other users, first name and last name, no password or email yet, USERNAME_FIELD IS ID
 
-from django.contrib.auth.models import User
-
-from django import forms
-
-class Modtest(models.Model):
-
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
-
-	nameof = models.PositiveIntegerField(primary_key = True)
-
-
-
-
-#we want another auth user
-#for this what we want is another authbackend passwordless, 
-#models without user just name
-#in settings we need to enter new auth method
-#update the production too
-
+#myusermanager where we have a create user function 

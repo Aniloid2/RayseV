@@ -97,7 +97,7 @@
 			<h1> DateKing 1.01v </h1>
 		</div>
 		<div class="col-md-2">
-			<p><a href="/login">Add Account</a></p>
+			<p><a href="/logout">Add Account</a></p>
 		</div>
 	</div>
 </div>
@@ -115,29 +115,29 @@
 			<h2>Name:
 				 {{user_1.user.first_name}} {{user_1.user.last_name}}</h2>
 			<h2>Year Formed:
-				{{user_1.year_formed}}</h2>
+				{{user_1.age}}</h2>
 			<p>Level: {{user_1.level}}</p>
 
 			<p id="one"></p>
-			<button onclick="detectPositionAndUpdateUser('one', {{user_1.id}})"><img src="{{user_1.webpull}}"></button>
+			<button onclick="detectPositionAndUpdateUser('one', {{user_1.user.username_id}})"><img src="{{user_1.webpull}}"></button>
 		</div>
 		<div class="col-md-4">
 			<h2>Name:
 				 {{user_2.user.first_name}} {{user_2.user.last_name}}</h2>
 			<h2>Year Formed:
-				{{user_2.year_formed}}</h2>
+				{{user_2.age}}</h2>
 			<p>Level: {{user_2.level}}</p>
 			<p id='two'></p>
-			<button onclick="detectPositionAndUpdateUser('two', {{user_2.id}})"><img src="{{user_2.webpull}}"></button>
+			<button onclick="detectPositionAndUpdateUser('two', {{user_2.user.username_id}})"><img src="{{user_2.webpull}}"></button>
 		</div>
 		<div class="col-md-4">
 			<h2>Name:
 				 {{user_3.user.first_name}} {{user_3.user.last_name}}</h2>
 			<h2>Year Formed:
-				{{user_3.year_formed}}</h2>
+				{{user_3.age}}</h2>
 			<p>Level: {{user_3.level}}</p>
 			<p id="three"></p>
-			<button onclick="detectPositionAndUpdateUser('three', {{user_3.id}})"><img src="{{user_3.webpull}}"></button>
+			<button onclick="detectPositionAndUpdateUser('three', {{user_3.user.username_id}})"><img src="{{user_3.webpull}}"></button>
 		</div>
 	</div>
 	<form name="form_user_order" style="display:none;" method = "POST" enctype="multipart/form-data"> 
