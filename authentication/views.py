@@ -67,7 +67,7 @@ def Register_login(request):
 				FacebookProfile.objects.create(user = user, webpull = webpull)
 			except Exception as e:
 				print (e)
-				
+
 			print ('Barebones put in place, Linked with FacebookProfile')
 
 
@@ -84,5 +84,10 @@ def Register_login(request):
 
 def logoutZ(request):
 	if request.method == "GET":
-		logout(request)
-		return HttpResponseRedirect('/login/')
+		if request.user.is_authenticated:
+			print ('user is autenticated, loging him out')
+			logout(request)
+			return HttpResponseRedirect('/login/')
+		else:
+			print ('user ins not autenticated')
+			return HttpResponseRedirect('/login/')
