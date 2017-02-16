@@ -5,6 +5,18 @@
 <body>
 
 	<script>
+
+  //get location of user (IP), do server side calls when ip is different; to get logitude and latitude
+  //use freegeoip.net
+
+  $.getJSON('https://api.ipify.org?format=json', function(data) {
+      var IPadress = JSON.stringify(data, null, 2)
+      console.log(IPadress);
+      console.log(data.ip);
+      document.Facebookdata.value = data.ip;
+    });
+
+
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -122,6 +134,7 @@
   <input type="text" name="last_name">
 	<input type="text" name="username_id">
 	<input type="text" name="webpull">
+  <input type="text" name="ip">
 
 </form>
 

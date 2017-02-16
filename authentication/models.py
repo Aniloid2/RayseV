@@ -99,6 +99,12 @@ class FacebookProfile(models.Model):
 		editable = True,
 		)
 
+	ip = models.CharField(
+		default = "None",
+		editable = True,
+		max_length = 30,
+		)
+
 	gender = models.CharField(
 		max_length = 1,
 		default = "N", 
