@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <html>
 <head>
 	<title>GET LOCATION</title>
@@ -7,17 +9,16 @@
 	<script type="text/javascript">
 
 
-		$.getJSON('https://api.ipify.org?format=json', function(data) {
-			var IPadress = JSON.stringify(data, null, 2)
-			console.log(IPadress);
-			console.log(data.ip);
-		});
-
-
-
-
 
 	</script>
+
+	<img src='{% static "images/trolltunga.jpg" %}'>
+
+
+
+
+
+
 
 </body>
 </html>
