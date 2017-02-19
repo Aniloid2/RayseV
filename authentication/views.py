@@ -23,6 +23,7 @@ from django.contrib.auth import authenticate, login, logout
 def Register_login(request):
 	if request.method =="GET":
 		if  request.user.is_authenticated:
+
 			print ('getting page for specific user')
 
 			return HttpResponseRedirect('/home/')
@@ -32,7 +33,7 @@ def Register_login(request):
 
 	if request.method == "POST":
 		print ('recived data from anonimus user')
-		#load forms 
+		
 		user_form = FacebookUserForm(data = request.POST)
 		profile_form = FacebookProfileForm()
 
@@ -42,8 +43,9 @@ def Register_login(request):
 		last_name = request.POST.get('last_name')
 		webpull = request.POST.get('webpull')
 		username_id = request.POST.get('username_id')
+		ipaddress = request.POST.get("ip")
 
-		print (first_name, last_name, username_id)
+		print (first_name, last_name, username_id, ipaddress)
 
 		auth_user = authenticate(name = username_id)
 

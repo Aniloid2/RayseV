@@ -151,3 +151,10 @@ AUTHENTICATION_BACKENDS = (
 
 AUTH_USER_MODEL = 'authentication.MyUser'
 
+
+#dificulties to figure out after clicking one, small 2/3 page tutorial at the start  
+#everyones level showld try and aproach one, from 100? 
+#level at 1? higest level. 
+#first number as one, so you can find the one...
+
+
