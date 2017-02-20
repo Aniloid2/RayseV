@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -158,3 +159,13 @@ AUTH_USER_MODEL = 'authentication.MyUser'
 #first number as one, so you can find the one...
 
 
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+AWS_ACCESS_KEY_ID = "AKIAJPJMTZBRA442TQNA"
+
+AWS_SECRET_ACCESS_KEY = "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"
+
+AWS_STORAGE_BUCKET_NAME= "s3rayse"
