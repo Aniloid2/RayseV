@@ -6,7 +6,6 @@ from authentication.models import FacebookProfile
 def king(request):
 	if request.method == 'GET':
 
-		return render(request, "authapp/GetAPITEST.html")
 
 		users = FacebookProfile.objects.all()
 		list_users = []
