@@ -93,3 +93,5 @@ def logoutZ(request):
 		else:
 			print ('user ins not autenticated')
 			return HttpResponseRedirect('/login/')
+
+
