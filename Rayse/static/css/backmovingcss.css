@@ -1,9 +1,26 @@
 #top-image {
-background:url('https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/0/8/8905/red-rocks-park-o.jpg') -25px -50px;
-position:fixed ;
+background:url('https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/0/8/8905/red-rocks-park-o.jpg')no-repeat;
 top:0;
+
 width:100%;
 z-index:0;
   height:100%;
   background-size: calc(100% + 50px);
+
+}
+
+
+
+
+
+
+#fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  background: lime; /* Just to visualize the extent */
+  
 }

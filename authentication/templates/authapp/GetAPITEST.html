@@ -3,18 +3,24 @@
 <html>
 <head>
 	<title>GET LOCATION</title>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/backmovingcss.css' %}">
 	<script src="{% static 'js/movingback.js' %}"></script>
+	<script src="{% static 'js/FacebookcallFun.js' %}"></script>
 </head>
 <body>
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+
+<div>
 	<div id="top-image">
-		
+
+
+		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
 
 	</div>
+</div>
 
 
 
