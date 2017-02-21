@@ -154,7 +154,7 @@ AUTH_USER_MODEL = 'authentication.MyUser'
 
 
 
-#AWS_STORAGE_BUCKET_NAME = ''
+AWS_STORAGE_BUCKET_NAME = 's3raysev'
 #AWS_ACCESS_KEY_ID = ''
 #AWS_SECRET_ACCESS_KEY = ''
 
