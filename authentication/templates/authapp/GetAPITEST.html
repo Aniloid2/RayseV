@@ -18,7 +18,7 @@
 <body>
 
 
-<div id="gradient">
+<!-- <div id="gradient"> -->
 
   <div class="login-form">
      <img id="logo" src="{% static 'images/LogotopWebImg.png' %}">
@@ -32,16 +32,17 @@
      </div> -->
      <!--  <span class="alert">Invalid Credentials</span> -->
  
-      <button type="button" class="log-btn" onclick="checkLoginState()">Login with facebook</button>
-     
-<!-- <fb:login-button size="xlarge "scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button> -->
+      <!-- <button type="button" class="log-btn" onclick="checkLoginState()">Login with facebook</button> -->
+     <div id="outer">
+<fb:login-button size="xlarge "scope="public_profile,email" class="log-btn" onlogin="checkLoginState();">
+</fb:login-button>
+</div>
      <!-- <button type="button" class="log-btn" >Log in</button> -->
     <a class="link" href="#">We won't post anthing to your wall</a>
     
    </div>
  
-</div>
+<!-- </div> -->
 
 
 

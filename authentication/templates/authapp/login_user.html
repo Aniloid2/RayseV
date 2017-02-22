@@ -134,7 +134,10 @@
 
   <div class="login-form">
     <img id="logo" src="{% static 'images/LogotopWebImg.png' %}">
-    <button type="button" class="log-btn" onclick="checkLoginState()">Login with facebook</button>
+    <div id="outer">
+<fb:login-button size="xlarge "scope="public_profile,email" class="log-btn" onlogin="checkLoginState();">
+</fb:login-button>
+</div>
     <a class="link" href="#">We won't post anthing to your wall</a>
   </div>
 
