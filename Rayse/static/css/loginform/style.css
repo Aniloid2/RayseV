@@ -16,13 +16,20 @@ h1 {
   font-size: 50px;
 }
 
+#status {
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Arial', cursive;
+  font-size: 20px;
+}
+
 .login-form {
   width: 350px;
   padding: 40px 30px;
   background: #eee;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  border-radius: 4px;
+  border-radius: 16px;
   margin: auto;
   position: absolute;
   left: 0;
@@ -141,9 +148,3 @@ h1 {
   }
 }
 
-/*
-
-#logo {
-  width: 20px;
-  height:20px;
-}*/
