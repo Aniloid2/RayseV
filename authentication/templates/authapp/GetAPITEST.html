@@ -4,22 +4,41 @@
 <head>
 	<title>GET LOCATION</title>
 	
+	<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/backmovingcss.css' %}">
-	<script src="{% static 'js/movingback.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/gradientcss.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/loginform/style.css' %}">
+
+	<script src="{% static 'js/gradientjs.js' %}"></script>
 	<script src="{% static 'js/FacebookcallFun.js' %}"></script>
+	
+
+
 </head>
 <body>
 
 
-<div>
-	<div id="top-image">
+<div id="gradient">
 
+  <div class="login-form">
+     <h1>Rayse</h1>
+     <!-- <div class="form-group ">
+       <input type="text" class="form-control" placeholder="Username " id="UserName">
+       <i class="fa fa-user"></i>
+     </div> -->
+    <!--  <div class="form-group log-status">
+       <input type="password" class="form-control" placeholder="Password" id="Passwod">
+       <i class="fa fa-lock"></i>
+     </div> -->
+     <!--  <span class="alert">Invalid Credentials</span> -->
+      <button type="button" class="log-btn"><fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button></button>
 
-		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
-	</div>
+     <!-- <button type="button" class="log-btn" >Log in</button> -->
+    <a class="link" href="#">We won't post anthing to your wall?</a>
+    
+   </div>
+ 
 </div>
 
 

@@ -1,0 +1,68 @@
+{% load staticfiles %}
+
+<html>
+<head>
+	<title>GET LOCATION</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/gradientcss.css' %}">
+	<script src="{% static 'js/gradientjs.js' %}"></script>
+	<script src="{% static 'js/FacebookcallFun.js' %}"></script>
+</head>
+<body>
+
+<div id="contentbox">
+	<div id="col-3">
+
+	</div>
+	<div id="col-6">
+		<div id="outer">
+			<div id="inner">
+				<img id="logo" src="{% static 'images/LogotopWebImg.png' %}">
+			</div>
+
+
+		</div>
+
+	</div>
+	<div id="col-3">
+
+	</div>
+
+
+</div>
+
+
+</div>
+<div id="gradient">
+<div id="contentbox">
+	<div id="col-3">
+		<h1>hi</h1>
+	</div>
+	
+<div id="col-6">
+	<div id="outer">
+		<div id="inner">
+		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+	</div>
+	</div>
+
+</div>
+
+<div id="col-3">
+	<h1>hi</h1>
+</div>
+
+
+	</div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
