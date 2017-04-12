@@ -78,7 +78,8 @@ def Register_login(request):
 
 			auth_user = authenticate(name = username_id)
 			login(request, auth_user)
-			
+			# return HttpResponseRedirect('/extra_details/')
+
 			return HttpResponseRedirect('/home/')
 
 
@@ -93,5 +94,37 @@ def logoutZ(request):
 		else:
 			print ('user ins not autenticated')
 			return HttpResponseRedirect('/login/')
+
+
+def extra_details(request):
+	if request.method == "GET":
+		print ("getting the extra details page")
+		return render(request, 'authapp/extra_details.html')
+
+	if request.method == "POST":
+		age = request.POST.get('age')
+		gender = request.POST.get('gender')
+		print (age, gender)
+		if request.user.is_authenticated:
+			#need to have a function that gets the value
+			# or for non protected need to have all minusle
+			request.user.facebookprofile.age = age
+			if ((gender == 'M') | (gender == 'F')):
+				print ('Passes right Char')
+				request.user.facebookprofile.gender = gender
+			
+			else:
+				print ('Must be either M or F')
+				return render(request, 'authapp/extra_details.html')
+			print ('Im authenticated', request.user.facebookprofile.gender)
+			request.user.facebookprofile.save()
+			return HttpResponseRedirect('/login/')
+
+		else:
+			print ('Im not authenticated')
+			return HttpResponseRedirect('/login/')
+
+
+# aloso add a delete account 
 
 

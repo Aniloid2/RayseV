@@ -22,7 +22,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from authentication.views import Register_login, logoutZ
+from authentication.views import Register_login, logoutZ, extra_details
 from homeapp.views import home
 from kingapp.views import king
 #from homeapp.views import Modtest
@@ -32,7 +32,8 @@ urlpatterns = [
 
     #authentification app
     url(r'^login/$', Register_login, name="login"),
-
+    
+    url(r'^extra_details/$', extra_details, name="extra_details"),
     #homeapp
     url(r'^home/$', home, name="home"),
 
