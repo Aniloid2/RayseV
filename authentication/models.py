@@ -107,7 +107,7 @@ class FacebookProfile(models.Model):
 
 	gender = models.CharField(
 		max_length = 1,
-		default = "N", 
+		default = "F", 
 		editable = True,
 		)
 

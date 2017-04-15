@@ -21,28 +21,6 @@ function codeaddress(no) {//fungion to load all users and append to blobal list
 	console.log('{{user_default.user.facebookprofile.gender}}')
 	console.log(no)
 
-	if ('{{user_default.user.facebookprofile.gender}}' == 'F') {
-
-
-	$.get(
-    "https://rayse-1d175.firebaseio.com/Users/M/.json",
-    function(data) {
-       console.log(data);
-    }
-	);
-
-	}// callback call another function
-	else {
-		$.get(
-    "https://rayse-1d175.firebaseio.com/Users/F/.json",
-    function(data) {
-       console.log(data);
-       console.log(data["101017563725415"]);
-    }
-	);
-
-	}
-
     $.get(
     "/get_users",
     function(data) {
