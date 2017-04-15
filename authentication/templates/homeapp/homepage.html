@@ -10,24 +10,112 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+
+<script type="text/javascript">
+
+// global list
+
+function codeaddress(no) {//fungion to load all users and append to blobal list
+	console.log('{{user_default.user.facebookprofile.gender}}')
+	console.log(no)
+
+	if ('{{user_default.user.facebookprofile.gender}}' == 'F') {
+
+
+	$.get(
+    "https://rayse-1d175.firebaseio.com/Users/M/.json",
+    function(data) {
+       console.log(data);
+    }
+	);
+
+	}// callback call another function
+	else {
+		$.get(
+    "https://rayse-1d175.firebaseio.com/Users/F/.json",
+    function(data) {
+       console.log(data);
+       console.log(data["101017563725415"]);
+    }
+	);
+
+	}
+
+    $.get(
+    "/get_users",
+    function(data) {
+    	console.log(data);
+
+    });
+
+
+
+
+
+}
+
+
+
+
+function codeaddress2(no2) { // another function chooses 3 users from list and calls all details
+	console.log(no2)
+}
+
+</script>
 
 
 </head>
 
-<body>
+<body onload="codeaddress('{{user_default.user.first_name}}') ; codeaddress2('{{user_default.user.last_name}}')">
+	<!-- first function pass request and check m or f, load all user from fb store in global list. -->
 
 <script type="text/javascript">
 	var time = 1;
 	var series_user = [];
 
 
+
+	var user_connection_ref = new Firebase('https://rayse-1d175.firebaseio.com/Users/'+'{{user_default.user.facebookprofile.gender}}' + '/' + '{{user_default.user.username_id}}' + '/Status/')
+
+
 	
+	user_connection_ref.onDisconnect().set('Offline')
+
+	user_connection_ref.set('Online')
+
+	//django authentication, just save username id, first name and second name. firebase all other details with post., popolate database with three entries, ammend the html to incorportate from fb
+
+	//first put a lissener on "request_match" if changed lissener will initalise a function, with that function get the id of the person that requested match, set that users id under request to your id create a pop up or open another web instance append messages under where the id is
+
+	// if user is online then check if my user is in his users
+
+	//get all topped ids. get ids, then get every id's status by going in opposite gender, and wanted id 'https://rayse-1d175.firebaseio.com/Users/'+'opposite gender' + '/' + 'gathered id' + '/Status/')
+	
+	//if status is online 
+
+	//probably need a lissener of some sort. to asyncronously call a founction 
+
+
+	// we need an iterrup somewhere when we found someone that is online and in topped list. 
+
+	// 
+
+
 
 
 
 	function detectPositionAndUpdateUser(position , user){
 		console.log('Welcome!  Fetching your information.... ');
 		console.log(user);
+		console.log('{{user_default.user.last_name}}')
+		//get user ids that we want to check status
+
+
+
+		// var user_connection_ref = firebase.database().ref('Users/'+ '{{user_default.user.facebookprofile.gender}}' +'/'+'{{user_default.user.username_id}}'+'/')
+		// user_connection_ref.onDisconnect().set("I disconnected")
 
 		for (var i = 0; i <= series_user.length-1; i++){
 			if (series_user[i] == user){
@@ -42,6 +130,11 @@
 		if (position == 'one'){
 			document.getElementById('one').innerHTML = time;
 			series_user.push(user);
+			//update visited under request.user.username_id
+			var favMovies = new Firebase('https://rayse-1d175.firebaseio.com/Users/'+ '{{user_default.user.facebookprofile.gender}}' +'/' + '{{user_default.user.username_id}}' + '/Topped/');
+	    	 favMovies.update({ // or push to add garbedge enty then actual entry // remove to remove
+			        'Id3': user,
+			    });
 			time += 1;
 		}
 		if (position == 'two'){
@@ -80,6 +173,7 @@
 			document.form_user_order.user_1.value = series_user[0];
 			document.form_user_order.user_2.value = series_user[1];
 			document.form_user_order.user_3.value = series_user[2];
+			//update firebase with status offline
 			document.form_user_order.submit();
 		}
 
@@ -143,6 +237,8 @@
 			<button onclick="detectPositionAndUpdateUser('three', {{user_3.user.username_id}})"><img src="{{user_3.webpull}}"></button>
 		</div>
 	</div>
+
+
 	<form name="form_user_order" style="display:none;" method = "POST" enctype="multipart/form-data"> 
 		{%csrf_token %}
 		User_1 <input name="user_1" type="text"><br>

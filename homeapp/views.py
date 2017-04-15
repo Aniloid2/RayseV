@@ -15,7 +15,7 @@ from django.contrib.auth import authenticate, login, logout
 #miscaleneous packages
 import re
 import random
-
+import json
 
 def home(request):
 
@@ -44,12 +44,19 @@ def home(request):
 
 
 		print (user_1)
+		if request.user.is_authenticated:
+		 	print ('im auth')
+		 	print (request.user.facebookprofile.gender)
+		 	user_default = request
+		else:
+		 	print ('never mind')
+		 	user_default = {'gender' : 'N'}
 	
 
 
 
 		return render(request, 'homeapp/homepage.html', { 'total_users' : total_users, 'user_1':user_1, 'user_2': user_2,\
-			'user_3':user_3})
+			'user_3':user_3, 'user_default':user_default})
 
 
 
@@ -82,3 +89,50 @@ def home(request):
 
 
 
+
+def get_users(request):
+	if request.method == "GET":
+		print ("got request")
+		if request.user.is_authenticated:
+			user_gender = request.user.facebookprofile.gender
+			if (user_gender == 'M'):
+				show_gender = 'F'
+			elif (user_gender == 'F'):
+				show_gender = 'M'
+			else:
+				HttpResponseRedirect('/login')
+		else:
+			print ('user is not authenticated')
+			show_gender = 'F'
+			## show animals as a marketing stunt?
+
+		#users = FacebookProfile.objects.all() # GETS ALL USERS
+		users = FacebookProfile.objects.filter(gender = show_gender)
+		print ('FILTERED', users)
+		total_users = users.count()
+
+		print (total_users)
+
+		ids =[]
+		for item in users:
+			id_ = item.id
+
+			ids.append(id_)
+
+		ids_shuffled = random.sample(ids, 3)
+
+		print (ids_shuffled)
+
+
+
+		user_1 = FacebookProfile.objects.get(pk = ids_shuffled[0])
+		user_2 = FacebookProfile.objects.get(pk = ids_shuffled[1])
+		user_3 = FacebookProfile.objects.get(pk = ids_shuffled[2])
+
+
+		print (user_1)
+		return HttpResponse(json.dumps({
+			'user_1': str(user_1.user.username_id),
+			'user_2': str(user_2.user.username_id),
+			'user_3': str(user_3.user.username_id),
+			}), content_type="application/json")

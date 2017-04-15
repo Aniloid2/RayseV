@@ -12,29 +12,35 @@
 	window.onload = codeaddress('never')
 
 
+
 	</script>
 
 
 </head>
 <body onload="codeaddress('flaming power')">
 	<script type="text/javascript">
-	$.get(
-    "https://rayse-1d175.firebaseio.com/Users.json",
-    function(data) {
-       console.log(data);
-    }
-	);
 
 
+	var userRef = new Firebase('https://rayse-1d175.firebaseio.com/Users/M/10211332172367154/Status/')
 
-	$(document).ready(function(){
-	    $("button").click(function(){
-	    	var favMovies = new Firebase('https://rayse-1d175.firebaseio.com/Users/123/Topped/');
-	    	 favMovies.update({ // or push to add garbedge enty then actual entry // remove to remove
-			        'ID5': 333,
-			    });
-			});
-	});
+	userRef.set('Online')
+
+	userRef.onDisconnect().set('I disconnected')
+
+
+	// could set status to 0 when user is disconnected, every time delete it and we create a new status lissener
+
+	// userRef.on("value", function(snap) {
+	// 	if (snap.val() === true) {
+	// 		console.log("connected");
+	// 	} else {
+	// 		connected.log("not connected");
+	// 	}
+
+	// })
+
+
+		userRef.onDisconnect().set("I disconnected")
 	</script>
 <button>Send an HTTP POST request to a page and get the result back</button>
 

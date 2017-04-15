@@ -1,7 +1,7 @@
 #special django packages
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-
+from django.http import JsonResponse
 #link with app forms
 
 from .forms import FacebookUserForm, FacebookProfileForm
@@ -14,9 +14,13 @@ from authentication.models import MyUser , FacebookProfile
 #miscaleneous packages
 import re
 import random
+import requests
+import json
 
 #authentication 
 from django.contrib.auth import authenticate, login, logout
+
+
 
 
 
@@ -32,6 +36,12 @@ def Register_login(request):
 			return render(request, 'authapp/login_user.html')
 
 	if request.method == "POST":
+		id_username = 'error'
+		firebase_payload = ({
+			'Users' : {
+
+			}
+			})
 		print ('recived data from anonimus user')
 		
 		user_form = FacebookUserForm(data = request.POST)
@@ -58,6 +68,7 @@ def Register_login(request):
 		else:
 			print ('this user has not got account... creating')
 			try :
+				#still create an authentication entry for backend pyton use
 				user = MyUser.objects.create_user(username_id = username_id , first_name = first_name, last_name = last_name)
 				pass
 			except Exception as e:
@@ -66,7 +77,10 @@ def Register_login(request):
 
 			print ('MyUser has been created')
 			try:
+				#in this case with firebase we dont have a facebook profile anymore
+				#create payload with empty level etc =0, and put apropriate entryes
 				FacebookProfile.objects.create(user = user, webpull = webpull)
+
 			except Exception as e:
 				print (e)
 
@@ -78,9 +92,9 @@ def Register_login(request):
 
 			auth_user = authenticate(name = username_id)
 			login(request, auth_user)
-			# return HttpResponseRedirect('/extra_details/')
+			return HttpResponseRedirect('/extra_details/')
 
-			return HttpResponseRedirect('/home/')
+			# return HttpResponseRedirect('/home/')
 
 
 
@@ -118,6 +132,38 @@ def extra_details(request):
 				return render(request, 'authapp/extra_details.html')
 			print ('Im authenticated', request.user.facebookprofile.gender)
 			request.user.facebookprofile.save()
+
+			# load all data pass it to firebase
+			firebase_payload = {
+				'Details' : {
+					'Name' : request.user.first_name,
+					'Surname' : request.user.last_name,
+					'Age': request.user.facebookprofile.age,
+					'Score': 0,
+					'Times_called':0,
+					'Level':0,
+					'Webpull': request.user.facebookprofile.webpull,
+
+				},
+				'Matched' : {
+
+				},
+				'Topped' : {
+
+				},
+				'Status': 'Offline',
+
+			} 
+
+			URL = 'https://rayse-1d175.firebaseio.com/Users/' + request.user.facebookprofile.gender + '/' + str(request.user.username_id) +'.json'
+			print (URL)
+
+			print (firebase_payload)
+
+			r = requests.patch(URL, data=json.dumps(firebase_payload))
+
+
+
 			return HttpResponseRedirect('/login/')
 
 		else:
@@ -126,5 +172,4 @@ def extra_details(request):
 
 
 # aloso add a delete account 
-
 
