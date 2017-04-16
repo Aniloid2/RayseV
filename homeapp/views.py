@@ -16,6 +16,7 @@ from django.contrib.auth import authenticate, login, logout
 import re
 import random
 import json
+import requests
 
 def home(request):
 
@@ -136,3 +137,49 @@ def get_users(request):
 			'user_2': str(user_2.user.username_id),
 			'user_3': str(user_3.user.username_id),
 			}), content_type="application/json")
+
+	if request.method == 'POST':
+		print ('It has been posted back')
+
+
+
+		try:
+			user_1 = request.POST.get('user_1')
+			print ('first user', user_1)
+			user_2 = request.POST.get('user_2')
+			user_3 = request.POST.get('user_3')
+			left_most_liked = [user_1, user_2, user_3]
+
+			score = 3
+			for item in left_most_liked:
+				user =  MyUser.objects.get(username_id = item)
+				user.facebookprofile.score += score
+				
+				user.facebookprofile.times_called +=1
+				user.facebookprofile.level = float(user.facebookprofile.score)/float(user.facebookprofile.times_called)
+				print (user.username_id, user.facebookprofile.score, user.facebookprofile.times_called, user.facebookprofile.level)
+				user.facebookprofile.save()
+
+				URL = 'https://rayse-1d175.firebaseio.com/Users/' + user.facebookprofile.gender + '/' + str(user.username_id) +'/Details.json'
+				print (URL)
+
+				firebase_score_upload = {
+
+				'Level': user.facebookprofile.level,
+				'Score': user.facebookprofile.score,
+				'Times_called': user.facebookprofile.times_called,
+
+				}
+
+				score -= 1
+
+				print (firebase_score_upload)
+
+				r = requests.patch(URL, data=json.dumps(firebase_score_upload))
+
+
+
+
+		except Exception as e:
+			print (e) 
+		return HttpResponse(json.dumps({'Status':'Ok'}),content_type="application/json" )
