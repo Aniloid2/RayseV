@@ -20,6 +20,7 @@
 <script type="text/javascript" src="{% static 'js/Lisseners/get_lisseners.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/Lisseners/Linker_object.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/Lisseners/Online_offline_lissener.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/Lisseners/status_updater.js' %}"></script>
 
 <style>
 /* The Modal (background) */
@@ -618,13 +619,17 @@ Added_topped.on('value', function(snapshot) {
 	// if it is check my id vs his id in curr
 
 	// another function where linkobj is a global anyway
-	LinkObj.status_lissen.on('value', function(snapshot) {
-		delete_topped_ref = LinkObj.firebase_raw.database().ref().child('Users').child(user_raw_gender).child(user_raw_id).child('Topped')
 
-		delete_topped_ref.remove()
+	status_updater_fun()
+
+
+	// LinkObj.status_lissen.on('value', function(snapshot) {
+	// 	delete_topped_ref = LinkObj.firebase_raw.database().ref().child('Users').child(user_raw_gender).child(user_raw_id).child('Topped')
+
+	// 	delete_topped_ref.remove()
 
 		
-		});
+	// 	});
 
 
 
@@ -662,30 +667,24 @@ Added_topped.on('value', function(snapshot) {
 
 	<div class="row">
 		<div class="col-md-4">
-			<h2 id='name_user_1' ><!-- Name:
-				 {{user_1.user.first_name}} {{user_1.user.last_name}} --></h2>
-			<h2 id='age_user_1'><!-- Year Formed:
-				{{user_1.age}} --></h2>
-			<p id='level_user_1'><!-- Level: {{user_1.level}} --></p>
+			<h2 id='name_user_1' ></h2>
+			<h2 id='age_user_1'></h2>
+			<p id='level_user_1'></p>
 
 			<p id="one"></p>
 			<button id='button_user_1' onclick="detectPositionAndUpdateUser('one', )"><img id="webpull_user_1" src=""></button>
 		</div>
 		<div class="col-md-4">
-			<h2 id='name_user_2'><!-- Name:
-				 {{user_2.user.first_name}} {{user_2.user.last_name}} --></h2>
-			<h2 id='age_user_2'><!-- Year Formed:
-				{{user_2.age}} --></h2>
-			<p id='level_user_2'><!-- Level: {{user_2.level}} --></p>
+			<h2 id='name_user_2'></h2>
+			<h2 id='age_user_2'></h2>
+			<p id='level_user_2'></p>
 			<p id='two'></p>
 			<button id='button_user_2' onclick="detectPositionAndUpdateUser('two', )"><img id="webpull_user_2" src=""></button>
 		</div>
 		<div class="col-md-4">
-			<h2 id='name_user_3'><!-- Name:
-				 {{user_3.user.first_name}} {{user_3.user.last_name}} --></h2>
-			<h2 id='age_user_3'><!-- Year Formed:
-				{{user_3.age}} --></h2>
-			<p id='level_user_3'><!-- Level: {{user_3.level}} --></p>
+			<h2 id='name_user_3'></h2>
+			<h2 id='age_user_3'></h2>
+			<p id='level_user_3'></p>
 			<p id="three"></p>
 			<button id='button_user_3' onclick="detectPositionAndUpdateUser('three', )"><img id="webpull_user_3" src=""></button>
 		</div>
