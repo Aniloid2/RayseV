@@ -247,9 +247,15 @@ get_users()
 	var user_raw_gender = '{{user_default.user.facebookprofile.gender}}'
 	var LinkObj = get_the_data(user_raw_id, user_raw_gender)
 	var modal = document.getElementById('myModal');
+    var close_modal = document.getElementsByClassName("close")[0];
+
 	Online_offline_fun();
 	chatting_application_fun()
 	status_updater_fun()
+
+    close_modal.onclick = function() {
+    modal.style.display = "none";
+    }   
 
 
 
