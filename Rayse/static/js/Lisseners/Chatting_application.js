@@ -172,10 +172,21 @@ function chatting_application_fun() {
 
 																var message_time = message_data.getTime()
 
+
+																  var hours = message_data.getHours();
+																  var minutes = message_data.getMinutes();
+																  var ampm = hours >= 12 ? 'pm' : 'am';
+																  hours = hours % 12;
+																  hours = hours ? hours : 12; // the hour '0' should be '12'
+																  minutes = minutes < 10 ? '0'+minutes : minutes;
+																  var strTime = hours + ':' + minutes + ' ' + ampm;
+
+																  strTime = strTime.toString()
+
 																Latest_message_ref.set({
 																	'Id_of_sender': user_raw_id,
 																	'Message':message_to_send,
-																	'Time_stamp':message_time,
+																	'Time_stamp':strTime,
 																})
 
 																// we would also need to set on total message list.
@@ -227,7 +238,7 @@ function chatting_application_fun() {
 																console.log('All needed times')
 																console.log(chat_enviroment.Time_stamp)
 																console.log(latest_message.Time_stamp)
-																var time_difference = latest_message.Time_stamp - chat_enviroment.Time_stamp
+															
 
 
 																//
@@ -235,12 +246,12 @@ function chatting_application_fun() {
 																if (latest_message.Id_of_sender == user_raw_id) {
 																	console.log('Ive sent the message')
 																	// generate and append code on my part
-																	$( ".modal-body" ).append("<div class='entire_message_body'><div class='row'><div class='col-md-6'></div><div class='col-md-5'><div class='My_message'><p>" + latest_message.Message + "</p><p>"+time_difference+"</p></div></div><div class='col-md-1'><img class='message_image' src="+ my_full_user_details.Webpull +"></div></div></div>")
+																	$( ".modal-body" ).append("<div class='entire_message_body'><div class='row'><div class='col-md-6'></div><div class='col-md-5'><div class='My_message'><p>" + latest_message.Message + "</p><p>"+latest_message.Time_stamp+"</p></div></div><div class='col-md-1'><img class='message_image' src="+ my_full_user_details.Webpull +"></div></div></div>")
 																	    document.getElementById('mex').value = '';
 																}
 																else if (latest_message.Id_of_sender == restring_their) {
 																	console.log('They have sent an id to me')
-																	$( ".modal-body" ).append("<div class='entire_message_body'><div class='row'><div class='col-md-1'><img class='message_image' src="+ their_full_user_details.Webpull + "></div><div class='col-md-5'><div class='Their_message'><p>"+latest_message.Message+"</p><p>" +time_difference+"</p></div></div><div class='col-md-6'></div></div></div>")
+																	$( ".modal-body" ).append("<div class='entire_message_body'><div class='row'><div class='col-md-1'><img class='message_image' src="+ their_full_user_details.Webpull + "></div><div class='col-md-5'><div class='Their_message'><p>"+latest_message.Message+"</p><p>" +latest_message.Time_stamp+"</p></div></div><div class='col-md-6'></div></div></div>")
 																		document.getElementById('mex').value = '';
 
 

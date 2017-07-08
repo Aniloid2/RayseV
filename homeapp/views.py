@@ -21,7 +21,7 @@ import requests
 def home(request):
 
 	if request.method == "GET":
-		print ("got request")
+		print ("got request", "im using home")
 		users = FacebookProfile.objects.all()
 		total_users = users.count()
 
@@ -51,7 +51,7 @@ def home(request):
 		 	user_default = request
 		else:
 		 	print ('never mind')
-		 	user_default = {'gender' : 'N'}
+		 	user_default = {'gender' : 'F'}
 	
 
 
@@ -93,7 +93,7 @@ def home(request):
 
 def get_users(request):
 	if request.method == "GET":
-		print ("got request")
+		print ("got request", "i'm using get users")
 		if request.user.is_authenticated:
 			user_gender = request.user.facebookprofile.gender
 			if (user_gender == 'M'):
@@ -106,6 +106,7 @@ def get_users(request):
 			print ('user is not authenticated')
 			show_gender = 'F'
 			## show animals as a marketing stunt?
+			print (show_gender)
 
 		#users = FacebookProfile.objects.all() # GETS ALL USERS
 		users = FacebookProfile.objects.filter(gender = show_gender)
