@@ -1,5 +1,4 @@
 {% load staticfiles %}
-
 <html>
 <head>
 	<title>LOGIN</title>
@@ -10,13 +9,17 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/loginform/style.css' %}">
 
   <script src="{% static 'js/gradientjs.js' %}"></script>
+
 </head>
-<body>
+<body >
  <!-- // <script src="{% static 'js/FacebookcallFun.js' %}"></script> -->
 	<script>
 
   //get location of user (IP), do server side calls when ip is different; to get logitude and latitude
   //use freegeoip.net
+
+
+
 
   $.getJSON('https://api.ipify.org?format=json', function(data) {
       var IPadress = JSON.stringify(data, null, 2)
@@ -24,6 +27,7 @@
       console.log(data.ip);
       document.Facebookdata.ip.value = data.ip;
     });
+
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -34,6 +38,7 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       var accessToken = response.authResponse.accessToken;
+      console.log('connected')
       testAPI();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -78,6 +83,7 @@
   // These three cases are handled in the callback function.
 
   FB.getLoginStatus(function(response) {
+    console.log("check login state")
     statusChangeCallback(response);
   });
 
@@ -117,7 +123,11 @@
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
-      document.Facebookdata.submit()
+
+      var but = document.getElementById('submit_button');
+      but.style.display = "inline-block";
+ 
+      // document.Facebookdata.submit()
 
     });
 
@@ -125,20 +135,25 @@
   }
 
 
+
   // This is called with the results from from FB.getLoginStatus().
   
 </script>
-
 
 <div id="gradient">
 
   <div class="login-form">
     <img id="logo" src="{% static 'images/LogotopWebImg.png' %}">
-    <div id="outer">
-<fb:login-button size="xlarge "scope="public_profile,email" class="log-btn" onlogin="checkLoginState();">
+    <div id="outer_login">
+<fb:login-button size="xlarge " scope="public_profile,email" class="log-btn" onlogin="checkLoginState();">
 </fb:login-button>
 </div>
+ <div id="outer_take_me">
+<button id="submit_button" type="submit" form="facebook_user" value="Submit" style="display:none;" >Take me to the app!</button>
+   </div>
     <a class="link" href="#">We won't post anthing to your wall</a>
+
+
   </div>
 
   <div id="status">
@@ -155,7 +170,5 @@
   <input type="text" name="ip">
 
 </form>
-
-
 </body>
 </html>

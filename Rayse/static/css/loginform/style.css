@@ -16,6 +16,8 @@ h1 {
   font-size: 50px;
 }
 
+
+
 #status {
   color: #ffffff;
   text-align: center;
@@ -81,9 +83,24 @@ h1 {
   color: #ed1c24;
 }
 
-#outer{
+#submit_button{
+  background:#3b5998;
+  width: 100%;
+
+}
+
+#outer_login{
+  color: #3b5998;
   width: 100%;
   text-align: center;
+}
+
+
+#outer_take_me{
+  color: #3b5998;
+  width: 100%;
+  text-align: center;
+  margin-top: 4vh;
 }
 
 .log-btn {
