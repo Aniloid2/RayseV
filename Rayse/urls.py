@@ -25,6 +25,7 @@ from django.conf.urls.static import static
 from authentication.views import Register_login, logoutZ, extra_details
 from homeapp.views import home, get_users
 from kingapp.views import king
+# from ReactLoginPageApp.views import react_login
 #from homeapp.views import Modtest
 
 urlpatterns = [
@@ -49,10 +50,9 @@ urlpatterns = [
     #test url#####ARCHIVE####
     
     #url(r'^mod/$', Modtest, name="mod"),
+    # url(r'^react_login_page/n$', react_login, name = 'react_login'),
 
 ]
 
-
-# ## local static ## 
 # if settings.DEBUG:
 #     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
