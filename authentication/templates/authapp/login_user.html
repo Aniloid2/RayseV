@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load render_bundle from webpack_loader %} 
 <html>
 <head>
 	<title>LOGIN</title>
@@ -9,6 +10,10 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/loginform/style.css' %}">
 
   <script src="{% static 'js/gradientjs.js' %}"></script>
+ <!-- <script src="..\static/js/gradientjs.js"></script> -->
+<!-- <script src='..\static/React_depend/index.jsx'></script> -->
+
+<!-- <script src="{% static 'React_depend/index.jsx' %}"></script> -->
 
 
 </head>
@@ -159,6 +164,9 @@
 
   <div id="status">
     </div>
+
+  <div id="container"></div>
+  {% render_bundle "main" %}
  
 </div>
 
