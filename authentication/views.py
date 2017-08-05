@@ -164,7 +164,7 @@ def extra_details(request):
 
 
 
-			return HttpResponseRedirect('/login/')
+			return HttpResponseRedirect('/flimbsi/')
 
 		else:
 			print ('Im not authenticated')

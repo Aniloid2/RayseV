@@ -21,18 +21,9 @@
  <!-- // <script src="{% static 'js/FacebookcallFun.js' %}"></script> -->
 	<script>
 
-  //get location of user (IP), do server side calls when ip is different; to get logitude and latitude
-  //use freegeoip.net
+  var csrf ='{{ csrf_token }}';
 
 
-
-
-  // $.getJSON('https://api.ipify.org?format=json', function(data) {
-  //     var IPadress = JSON.stringify(data, null, 2)
-  //     console.log(IPadress);
-  //     console.log(data.ip);
-  //     document.Facebookdata.ip.value = data.ip;
-  //   });
 
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -118,20 +109,20 @@
 
 
 
-      document.Facebookdata.first_name.value =  fullName_list[0];
-      document.Facebookdata.last_name.value = fullName_list[1];
+      // document.Facebookdata.first_name.value =  fullName_list[0];
+      // document.Facebookdata.last_name.value = fullName_list[1];
 
 
-      document.Facebookdata.username_id.value = response.id;
-      document.Facebookdata.webpull.value = response.picture.data.url;
+      // document.Facebookdata.username_id.value = response.id;
+      // document.Facebookdata.webpull.value = response.picture.data.url;
       console.log(response.age);
 
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
 
-      var but = document.getElementById('submit_button');
-      but.style.display = "inline-block";
+      // var but = document.getElementById('submit_button');
+      // but.style.display = "inline-block";
  
       // document.Facebookdata.submit()
 
@@ -151,12 +142,12 @@
   <div class="login-form">
     <img id="logo" src="{% static 'images/LogotopWebImg.png' %}">
     <div id="outer_login">
-<fb:login-button size="xlarge " scope="public_profile,email" class="log-btn" onlogin="checkLoginState();">
-</fb:login-button>
+<!-- <fb:login-button size="xlarge " scope="public_profile,email" class="log-btn" onlogin="checkLoginState();">
+</fb:login-button> -->
 </div>
- <div id="outer_take_me">
+<!--  <div id="outer_take_me">
 <button id="submit_button" type="submit" form="facebook_user" value="Submit" style="display:none;" >Take me to the app!</button>
-   </div>
+   </div> -->
     <a class="link" href="#">We won't post anthing to your wall</a>
 
 
@@ -165,19 +156,20 @@
   <div id="status">
     </div>
 
+
   <div id="container"></div>
   {% render_bundle "main" %}
- 
+<!--      
+<form id = "facebook_user" name="Facebookdata" enctype="multipart/form-data" method="POST" style="display:none;">
+  {%csrf_token %}
+  <input type="text" ref="first_name" id="first_name">
+  <input type="text" ref="last_name" id="last_name">
+  <input type="text" ref="username_id" id="username_id">
+  <input type="text" ref="webpull" id="webpull">
+  <input type="text" id="ip">
+
+</form> -->
 </div>
 
-<form id = "facebook_user" name="Facebookdata" enctype="multipart/form-data" method="POST" style="display:none;">
-	{%csrf_token %}
-	<input type="text" name="first_name">
-  <input type="text" name="last_name">
-	<input type="text" name="username_id">
-	<input type="text" name="webpull">
-  <input type="text" name="ip">
-
-</form>
 </body>
 </html>
