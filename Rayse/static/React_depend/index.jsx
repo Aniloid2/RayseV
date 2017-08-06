@@ -5,10 +5,14 @@ var ReactDOM = require('react-dom')
 // import React from 'react';
 // import ReactDOM from 'react-dom';
 
-import Facebook_button from "./Facebook_login"
+import Facebook_button from "./Facebook_login";
+import loginform_styles from '../css/loginform/style.css';
+// import LogoImg from './9e2494ad2b4a9a6374c4eabf4f6e242d.png';
 
-// var Initaliser = React.createClass ({
-class Initaliser extends React.Component {
+
+
+// var Login_form = React.createClass ({
+class Login_form extends React.Component {
 
 	constructor(props){
 
@@ -34,13 +38,27 @@ class Initaliser extends React.Component {
 		// 		      console.log(data.ip);
 		// 		      document.Facebookdata.ip.value = data.ip;
 		// 		    });
-		
+
 	// };
+
+	Return_login_button() {
+		return(
+			<Facebook_button>
+			</Facebook_button>
+			);
+
+	};
 
     render(){
 
         return (
-            null
+            <div className={  loginform_styles.FoginForm  } >
+            <img id="logo" src="/static/images/LogotopWebImg.png"/>
+            <div>
+            	{this.Return_login_button()}
+            	</div>
+            	 <a className={ loginform_styles.link } href="#">We won't post anthing to your wall</a>
+            </div>
         )
     }
 };//)
@@ -73,8 +91,9 @@ class Initaliser extends React.Component {
 //     }
 // })
 
-ReactDOM.render(<div>
-	<Initaliser />
-	<Facebook_button />
+ReactDOM.render(
+	<div>
+	
+	<Login_form />
 	</div>
 	, document.getElementById('container'));

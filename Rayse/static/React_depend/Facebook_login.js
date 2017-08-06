@@ -25,6 +25,7 @@ export default class Facebook_login extends React.Component {
       last_name:0,
       username_id:0,
       webpull:0,
+      ip:0,
 
     };
     this.handleResponse = this.handleResponse.bind(this);
@@ -51,8 +52,11 @@ export default class Facebook_login extends React.Component {
               var IPadress = JSON.stringify(data, null, 2)
               console.log(IPadress);
               console.log(data.ip);
-              document.Facebookdata.ip.value = data.ip;
-            });
+              // document.Facebookdata.ip.value = data.ip;
+              this.setState({ip:data.ip})
+
+
+            }.bind(this));
 
     this.setState({first_name:response.first_name});
     this.setState({last_name:response.last_name});
@@ -63,6 +67,8 @@ export default class Facebook_login extends React.Component {
 
 
     console.log(this.state)
+
+    document.Facebookdata.submit()
 
 
 
@@ -143,7 +149,7 @@ export default class Facebook_login extends React.Component {
         <input type="text" value={this.state.last_name} name="last_name" />
         <input type="text" value={this.state.username_id} name="username_id"/>
         <input type="text" value={this.state.webpull} name="webpull"/>
-        <input type="text" name="ip"/>
+        <input type="text" value={this.state.ip} name="ip"/>
 
 
     </form>
