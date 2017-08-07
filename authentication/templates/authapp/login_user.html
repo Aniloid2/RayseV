@@ -137,7 +137,7 @@
   
 </script>
 
-<!-- <div id="gradient"> -->
+<div id="gradient">
 
   <!-- <div class="FoginForm"> -->
   <!--   <img id="logo" src="{% static 'images/LogotopWebImg.png' %}"> -->
@@ -157,8 +157,12 @@
     </div>
 
 
-  <div id="container"></div>
-  {% render_bundle "main" %}
+  <div id="container">
+    
+     {% render_bundle "main" %}
+  </div>
+
+ 
 <!--      
 <form id = "facebook_user" name="Facebookdata" enctype="multipart/form-data" method="POST" style="display:none;">
   {%csrf_token %}
@@ -169,7 +173,7 @@
   <input type="text" id="ip">
 
 </form> -->
-<!-- </div> -->
+</div>
 
 </body>
 </html>

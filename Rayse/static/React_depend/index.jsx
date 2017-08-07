@@ -6,12 +6,24 @@ var ReactDOM = require('react-dom')
 // import ReactDOM from 'react-dom';
 
 import Facebook_button from "./Facebook_login";
+import Home_page from "./home_page_structure"
 import loginform_styles from '../css/loginform/style.css';
 // import LogoImg from './9e2494ad2b4a9a6374c4eabf4f6e242d.png';
 
 
 
 // var Login_form = React.createClass ({
+class Header extends React.Component {
+	render () {
+
+
+		return (
+			<Home_page/>
+			)
+	}
+}
+
+
 class Login_form extends React.Component {
 
 	constructor(props){
@@ -42,6 +54,7 @@ class Login_form extends React.Component {
 	// };
 
 	Return_login_button() {
+
 		return(
 			<Facebook_button>
 			</Facebook_button>
@@ -51,7 +64,10 @@ class Login_form extends React.Component {
 
     render(){
 
+
+
         return (
+        	// Container = 'container'
             <div className={  loginform_styles.FoginForm  } >
             <img id="logo" src="/static/images/LogotopWebImg.png"/>
             <div>
@@ -91,9 +107,29 @@ class Login_form extends React.Component {
 //     }
 // })
 
+
+
+try {
+ReactDOM.render(
+	<div>
+	<Header />
+	</div>
+	, document.getElementById('outer_box'));
+}
+catch(err) {
+	console.log('missed')
+}
+// do my header window.location
+try{
 ReactDOM.render(
 	<div>
 	
 	<Login_form />
 	</div>
 	, document.getElementById('container'));
+
+}
+catch(err) {
+	console.log('missed')
+}
+
