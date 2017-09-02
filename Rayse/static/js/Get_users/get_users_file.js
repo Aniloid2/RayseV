@@ -7,7 +7,7 @@ function get_users() {
     	console.log(data);
 
     	$.get(
-		    "https://rayse-1d175.firebaseio.com/Users/" + anty_gender + "/"+data.user_1 + ".json",
+		    "https://rayse-1d175.firebaseio.com/Users/" + data.show_gender + "/"+data.user_1 + ".json",
 		    function(data_return_1) {
 		    	console.log(data_return_1)
 		    	document.getElementById('name_user_1').innerHTML = 'Name: ' + data_return_1.Details.Name + ' ' + data_return_1.Details.Surname
@@ -19,7 +19,7 @@ function get_users() {
 		});
 
     	$.get(
-    		"https://rayse-1d175.firebaseio.com/Users/" + anty_gender + "/"+data.user_2 + ".json",
+    		"https://rayse-1d175.firebaseio.com/Users/" + data.show_gender + "/"+data.user_2 + ".json",
 	    function(data_return_2) {
 	    	console.log(data_return_2)
 	    	document.getElementById('name_user_2').innerHTML = 'Name: ' + data_return_2.Details.Name + ' ' + data_return_2.Details.Surname
@@ -31,7 +31,7 @@ function get_users() {
 	    });
 
 	    	$.get(
-	    "https://rayse-1d175.firebaseio.com/Users/" + anty_gender + "/"+data.user_3 + ".json",
+	    "https://rayse-1d175.firebaseio.com/Users/" + data.show_gender + "/"+data.user_3 + ".json",
 	    function(data_return_3) {
 	    	console.log(data_return_3)
 	    	document.getElementById('name_user_3').innerHTML = 'Name: ' + data_return_3.Details.Name + ' ' + data_return_3.Details.Surname

@@ -16,8 +16,6 @@ h1 {
   font-size: 50px;
 }
 
-
-
 #status {
   color: #ffffff;
   text-align: center;
@@ -25,7 +23,9 @@ h1 {
   font-size: 20px;
 }
 
-.login-form {
+
+
+.FoginForm{
   width: 350px;
   padding: 40px 30px;
   background: #eee;
@@ -42,6 +42,8 @@ h1 {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+
 
 .form-group {
   position: relative;

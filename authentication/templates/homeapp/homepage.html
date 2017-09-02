@@ -1,18 +1,26 @@
 <!DOCTYPE HTML>
 {% load static from staticfiles %}
+{% load render_bundle from webpack_loader %} 
 <html>
 
 <head>
 <title>
+
 	Home
 </title>
 
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script> -->
-<script src="https://www.gstatic.com/firebasejs/3.7.6/firebase.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="{% static 'js/Get_users/get_users_file.js' %}"></script>
@@ -22,7 +30,8 @@
 <script type="text/javascript" src="{% static 'js/Lisseners/Online_offline_lissener.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/Lisseners/status_updater.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/Lisseners/Chatting_application.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/Home_page/close_modal.js' %}"></script>
+
+<!-- <script type="text/javascript" src="{% static 'js/Home_page/close_modal.js' %}"></script> -->
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/homepage/modal.css' %}"></link >
 
@@ -38,7 +47,7 @@
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
 if ('{{user_default.user.facebookprofile.gender}}' == 'M') {
 	anty_gender = 'F'
@@ -54,14 +63,14 @@ get_users()
 //function lissener.on to detect interrupt
 
 
-</script>
+</script> -->
 
 
 </head>
 
-<body onload="">
+<body >
 
-
+<div class="container-fluid">
 <div id="myModal" class="modal">
 
 <!-- Modal content -->
@@ -129,7 +138,7 @@ get_users()
 
 
 
-
+<!-- 
 <script type="text/javascript">
 	var time = 1;
 	var plays_count = 1;
@@ -152,28 +161,36 @@ get_users()
 
 
 
-</script>
+</script> -->
 	
-	<div class="jumbotron text-center">
+	<!-- <div class="jumbotron text-center">
 		<div class="row">
 			<div class = "col-md-2">
 				<p><a href="/king">View King</a></p>
+
+
+
 		</div>
 		<div class="col-md-8">
 			<h1> Rayse 1.01v </h1>
 		</div>
+
 		<div class="col-md-2">
 			<p><a href="/logout" onclick="FB.logout();">Logout</a></p>
 
 		</div>
 	</div>
 </div>
+		 -->
+		 <div id="outer_box">
+	
+	{% render_bundle "main" %}
+	</div>
 		
-		
 
 
 
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-md-4">
 			<h2 id='name_user_1' ></h2>
 			<h2 id='age_user_1'></h2>
@@ -205,7 +222,58 @@ get_users()
 		User_2 <input name="user_2" type="text"><br>
 		User_3 <input name="user_3" type="text"><br>
 	</form>
+ -->
 
+<!-- <div id="outer_box">
+	
+	{% render_bundle "main" %} -->
+
+</div>
+
+
+
+<script type="text/javascript">
+var csrf ='{{ csrf_token }}';
+
+if ('{{user_default.user.facebookprofile.gender}}' == 'M') {
+	anty_gender = 'F'
+}
+else if ('{{user_default.user.facebookprofile.gender}}' == 'F') {
+	anty_gender = 'M'
+}
+else {
+    anty_gender = 'F'
+}
+
+get_users()
+//function lissener.on to detect interrupt
+
+
+</script>
+
+<script type="text/javascript">
+	//var time = 1;
+	var plays_count = 1;
+	var series_user = [];
+	var csrf = '{{ csrf_token }}'
+	var user_raw_id = '{{user_default.user.username_id}}'
+	var user_raw_gender = '{{user_default.user.facebookprofile.gender}}'
+	var LinkObj = get_the_data(user_raw_id, user_raw_gender)
+	var modal = document.getElementById('myModal');
+    var close_modal = document.getElementsByClassName("close")[0];
+
+	Online_offline_fun();
+	chatting_application_fun()
+	status_updater_fun()
+
+    close_modal.onclick = function() {
+    modal.style.display = "none";
+    }   
+
+
+
+
+</script>
 
 </body>
 

@@ -55,12 +55,43 @@ def Register_login(request):
 		username_id = request.POST.get('username_id')
 		ipaddress = request.POST.get("ip")
 
-		print (first_name, last_name, username_id, ipaddress)
+		print (first_name, last_name, username_id, ipaddress, webpull)
 
 		auth_user = authenticate(name = username_id)
 
 		if auth_user:
 			print ('this user has an account')
+
+			if ((auth_user.facebookprofile.webpull) != (webpull)): 
+			# update picture with post request
+			# get user male or fmal, user id, details , webpull 
+				auth_user.facebookprofile.webpull = webpull
+				user_gender = auth_user.facebookprofile.gender
+				print (user_gender)
+				user_termp_id = auth_user.username_id
+				print (user_termp_id)
+
+
+				firebase_payload = {
+						'Webpull': auth_user.facebookprofile.webpull,
+				} 
+
+				URL = 'https://rayse-1d175.firebaseio.com/Users/' + auth_user.facebookprofile.gender + '/' + str(auth_user.username_id) + '/Details.json'
+				print (URL)
+
+				print (firebase_payload)
+
+				
+
+				r = requests.patch(URL, data=json.dumps(firebase_payload))
+
+
+
+
+
+
+
+
 			login(request, auth_user)
 			print ('this user has been logged in')
 			return HttpResponseRedirect("/home/")
@@ -164,7 +195,7 @@ def extra_details(request):
 
 
 
-			return HttpResponseRedirect('/login/')
+			return HttpResponseRedirect('/home/')
 
 		else:
 			print ('Im not authenticated')
@@ -173,3 +204,35 @@ def extra_details(request):
 
 # aloso add a delete account 
 
+
+def delete_account(request):
+	if request.method == 'GET':
+		if request.user.is_authenticated:
+
+			request_deletion_user_id = request.user.username_id
+			print ('requested the users delition request',request_deletion_user_id, isinstance(request_deletion_user_id, int))
+			user_to_delete = MyUser.objects.get(username_id = request_deletion_user_id)
+
+			print ('users first name', user_to_delete.first_name)
+
+			
+
+			user_to_delete.delete()
+
+			logout(request)
+			
+			return HttpResponse(json.dumps({'deleted':'Delition Accomplished'}),content_type="application/json" )
+		else:
+			print ('this user is not auth on delete_account')
+			return HttpResponse(json.dumps({'deleted':'Delition Abborted Not Authenticated'}),content_type="application/json" )
+
+
+
+#get current user details
+
+	# $.get(
+	# 				"/logout",
+	# 				function(){
+	# 					console.log('both deleted and loggged out')
+	# 				}
+	# 				)

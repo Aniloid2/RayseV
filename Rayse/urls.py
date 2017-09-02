@@ -22,8 +22,8 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from authentication.views import Register_login, logoutZ, extra_details
-from homeapp.views import home, get_users
+from authentication.views import Register_login, logoutZ, extra_details, delete_account
+from homeapp.views import home, get_users, get_my_user
 from kingapp.views import king
 # from ReactLoginPageApp.views import react_login
 #from homeapp.views import Modtest
@@ -47,6 +47,10 @@ urlpatterns = [
 
     url(r'^logout/$', logoutZ, name = "logoutZ"),
 
+    url(r'^get_my_user/$', get_my_user, name="get_my_user"),
+
+    url(r'^delete_account/$', delete_account, name="delete_account")
+
     #test url#####ARCHIVE####
     
     #url(r'^mod/$', Modtest, name="mod"),
@@ -54,5 +58,6 @@ urlpatterns = [
 
 ]
 
-# if settings.DEBUG:
-#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    print ('the url pattern', urlpatterns)

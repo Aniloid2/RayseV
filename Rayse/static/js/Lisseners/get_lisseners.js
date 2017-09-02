@@ -8,7 +8,8 @@ function get_the_data(userid, gender) {
 
 	var databaseURL = "https://rayse-1d175.firebaseio.com/"
 
-	var folder = userid.concat(databaseURL)
+	// var folder = userid.concat(databaseURL)
+	var folder = databaseURL
 	console.log(folder)
 
 
