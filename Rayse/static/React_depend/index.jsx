@@ -6,14 +6,30 @@ var ReactDOM = require('react-dom')
 // import ReactDOM from 'react-dom';
 
 import Facebook_button from "./Facebook_login";
-import Home_page from "./home_page_structure"
+import Home_page from "./home_page_structure.jsx"
 import loginform_styles from '../css/loginform/style.css';
 // import LogoImg from './9e2494ad2b4a9a6374c4eabf4f6e242d.png';
 
+// import '../css/bootstrap.css';
+import * as firebase from 'firebase'
+
+import {  Jumbotron } from 'react-bootstrap';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+var folder = "https://rayse-1d175.firebaseio.com/"
+var diff_config = {
+	apiKey: "AIzaSyA1He_lYsMphHl41rpQSEUfTeYIj976Oz4",
+	authDomain: "rayse-1d175.firebaseapp.com",
+	databaseURL: folder,
+	storageBucket: "rayse-1d175.appspot.com",
+	};
+
+firebase.initializeApp(diff_config);
 
 
 // var Login_form = React.createClass ({
-class Header extends React.Component {
+class Home_page_structure extends React.Component {
 	render () {
 
 
@@ -42,16 +58,6 @@ class Login_form extends React.Component {
 		};
 	}
 
-	// componentDidMount() {
-
-		// $.getJSON('https://api.ipify.org?format=json', function(data) {
-		// 		      var IPadress = JSON.stringify(data, null, 2)
-		// 		      console.log(IPadress);
-		// 		      console.log(data.ip);
-		// 		      document.Facebookdata.ip.value = data.ip;
-		// 		    });
-
-	// };
 
 	Return_login_button() {
 
@@ -108,18 +114,25 @@ class Login_form extends React.Component {
 // })
 
 
-
 try {
-ReactDOM.render(
-	<div>
-	<Header />
+ReactDOM.render(	
+	<div >
+
+	  <MuiThemeProvider>
+
+	  
+
+	<Home_page_structure />
+  </MuiThemeProvider>
+	
+	
 	</div>
 	, document.getElementById('outer_box'));
 }
 catch(err) {
-	console.log('missed')
+	console.log('missed', err)
 }
-// do my header window.location
+// do my Home_page_structure window.location
 try{
 ReactDOM.render(
 	<div>
@@ -130,6 +143,6 @@ ReactDOM.render(
 
 }
 catch(err) {
-	console.log('missed')
+	console.log('missed', err)
 }
 

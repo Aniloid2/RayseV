@@ -16,13 +16,14 @@ h1 {
   font-size: 50px;
 }
 
-
 #status {
   color: #ffffff;
   text-align: center;
   font-family: 'Arial', cursive;
   font-size: 20px;
 }
+
+
 
 .FoginForm{
   width: 350px;
@@ -41,6 +42,8 @@ h1 {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+
 
 .form-group {
   position: relative;

@@ -5,15 +5,22 @@
 
 <head>
 <title>
+
 	Home
 </title>
 
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script> -->
-<script src="https://www.gstatic.com/firebasejs/3.7.6/firebase.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="{% static 'js/Get_users/get_users_file.js' %}"></script>
@@ -23,6 +30,7 @@
 <script type="text/javascript" src="{% static 'js/Lisseners/Online_offline_lissener.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/Lisseners/status_updater.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/Lisseners/Chatting_application.js' %}"></script>
+
 <!-- <script type="text/javascript" src="{% static 'js/Home_page/close_modal.js' %}"></script> -->
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/homepage/modal.css' %}"></link >
@@ -60,9 +68,9 @@ get_users()
 
 </head>
 
-<body onload="">
+<body >
 
-
+<div class="container-fluid">
 <div id="myModal" class="modal">
 
 <!-- Modal content -->
@@ -155,7 +163,7 @@ get_users()
 
 </script> -->
 	
-	<div class="jumbotron text-center">
+	<!-- <div class="jumbotron text-center">
 		<div class="row">
 			<div class = "col-md-2">
 				<p><a href="/king">View King</a></p>
@@ -173,12 +181,16 @@ get_users()
 		</div>
 	</div>
 </div>
+		 -->
+		 <div id="outer_box">
+	
+	{% render_bundle "main" %}
+	</div>
 		
-		
 
 
 
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-md-4">
 			<h2 id='name_user_1' ></h2>
 			<h2 id='age_user_1'></h2>
@@ -210,15 +222,18 @@ get_users()
 		User_2 <input name="user_2" type="text"><br>
 		User_3 <input name="user_3" type="text"><br>
 	</form>
+ -->
 
-
-<div id="outer_box">
+<!-- <div id="outer_box">
 	
-	{% render_bundle "main" %}
+	{% render_bundle "main" %} -->
 
 </div>
 
+
+
 <script type="text/javascript">
+var csrf ='{{ csrf_token }}';
 
 if ('{{user_default.user.facebookprofile.gender}}' == 'M') {
 	anty_gender = 'F'
@@ -237,7 +252,7 @@ get_users()
 </script>
 
 <script type="text/javascript">
-	var time = 1;
+	//var time = 1;
 	var plays_count = 1;
 	var series_user = [];
 	var csrf = '{{ csrf_token }}'

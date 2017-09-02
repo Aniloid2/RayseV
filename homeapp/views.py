@@ -134,6 +134,9 @@ def get_users(request):
 
 		print (user_1)
 		return HttpResponse(json.dumps({
+			'show_gender': show_gender,
+
+
 			'user_1': str(user_1.user.username_id),
 			'user_2': str(user_2.user.username_id),
 			'user_3': str(user_3.user.username_id),
@@ -184,3 +187,25 @@ def get_users(request):
 		except Exception as e:
 			print (e) 
 		return HttpResponse(json.dumps({'Status':'Ok'}),content_type="application/json" )
+
+
+
+def get_my_user(request):
+	if request.method == "GET":
+		print ("got request", "i'm using get users")
+		if request.user.is_authenticated:
+			user = request.user
+			print (user.username_id)
+			return HttpResponse(json.dumps( { 'MyUser': {
+				'username_id':user.username_id,
+				'gender':user.facebookprofile.gender,
+				},
+				'logged': True,
+
+
+				 }),content_type="application/json" )
+
+		else:
+			print ('not authenticated, trying to get its own user')
+			# return HttpResponseRedirect('/login/')
+			return HttpResponse(json.dumps({'logged':False}),content_type="application/json" )
