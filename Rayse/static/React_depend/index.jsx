@@ -71,11 +71,11 @@ class Login_form extends React.Component {
     render(){
 
 
-
+// the image is located during dev at src="/static/images/LogotopWebImg.png"
         return (
         	// Container = 'container'
             <div className={  loginform_styles.FoginForm  } >
-            <img id="logo" src="/static/images/LogotopWebImg.png"/>
+            <img id="logo" src="/static/images/LogotopWebImg.png"/> 
             <div>
             	{this.Return_login_button()}
             	</div>
