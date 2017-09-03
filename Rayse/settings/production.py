@@ -180,11 +180,3 @@ if Production == True:
 
     STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
-
-WEBPACK_LOADER = {
-    'DEFAULT': {
-    'BUNDLE_DIR_NAME': '',
-    'STATS_FILE': 'https://s3.amazonaws.com/s3raysev/React_depend/bundles/bundle.js',
-
-    }
-}
