@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'Rayse.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'acsm_a93082fed4c4e25',
-        'USER': 'b987b1989db102',
-        'PASSWORD': '16bc1066',
+        'NAME': 'raysev4', # 'acsm_a93082fed4c4e25',
+        'USER': 'bf7f1d6cee4e94', # 'b987b1989db102',
+        'PASSWORD': '2bd7e867', # '16bc1066',
         'HOST': 'eu-cdbr-azure-north-e.cloudapp.net',
         'PORT': '3306'
     }
