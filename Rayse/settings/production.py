@@ -179,3 +179,12 @@ if Production == True:
 # you run `collectstatic`).
 
     STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+    'BUNDLE_DIR_NAME': 'React_depend/bundles/',
+    'STATS_FILE': os.path.join(BASE_DIR, '..\webpack-stats.json'),
+
+    }
+}
