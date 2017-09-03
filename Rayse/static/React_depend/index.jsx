@@ -75,7 +75,7 @@ class Login_form extends React.Component {
         return (
         	// Container = 'container'
             <div className={  loginform_styles.FoginForm  } >
-            <img id="logo" src="/static/images/LogotopWebImg.png"/> 
+            <img id="logo" src="https://s3.amazonaws.com/s3raysev/images/LogotopWebImg.png"/> 
             <div>
             	{this.Return_login_button()}
             	</div>
