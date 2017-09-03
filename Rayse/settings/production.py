@@ -183,8 +183,8 @@ if Production == True:
 
 WEBPACK_LOADER = {
     'DEFAULT': {
-    'BUNDLE_DIR_NAME': 'React_depend/bundles/',
-    'STATS_FILE': os.path.join(BASE_DIR, '..\webpack-stats.json'),
+    'BUNDLE_DIR_NAME': '',
+    'STATS_FILE': 'https://s3.amazonaws.com/s3raysev/React_depend/bundles/bundle.js',
 
     }
 }
