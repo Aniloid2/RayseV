@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom')
 import {Button, DropdownButton,Pager, Container, Row, Col, Grid, Jumbotron } from 'react-bootstrap';
 
 
-// npm run web_pack --watch
+
 
 // all material ui
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
