@@ -45,8 +45,6 @@ import DjangoCSRFToken from 'django-react-csrftoken'
 
 
 
-
-
 export class Three_users extends React.Component {
 
 	constructor() {
@@ -924,7 +922,7 @@ class AppBarExampleComposition extends Component {
         <AppBar
           title="Title"
            style={{height:"20%", textAlign:"center", marginBottom:"2%", marginTop:"0.2%", backgroundColor:'#a20000'}} //ffc1c1
-    title={<img id="logo" style={{ height: "100%"}} src="/static/images/LogotopWebImg_white.png"/>}
+    title={<img id="logo" style={{ height: "100%"}} src="https://s3.amazonaws.com/s3raysev/images/LogotopWebImg_white.png "/>} ///static/images/LogotopWebImg_white.png
          
           iconElementRight={this.state.logged ? <Logged /> : <Login />}
         />

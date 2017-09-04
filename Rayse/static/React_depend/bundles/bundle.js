@@ -57400,7 +57400,7 @@ var AppBarExampleComposition = function (_Component) {
 				_react2.default.createElement(_AppBar2.default, (_React$createElement = {
 					title: 'Title',
 					style: { height: "20%", textAlign: "center", marginBottom: "2%", marginTop: "0.2%", backgroundColor: '#a20000' } //ffc1c1
-				}, _defineProperty(_React$createElement, 'title', _react2.default.createElement('img', { id: 'logo', style: { height: "100%" }, src: '/static/images/LogotopWebImg_white.png' })), _defineProperty(_React$createElement, 'iconElementRight', this.state.logged ? _react2.default.createElement(Logged, null) : _react2.default.createElement(Login, null)), _React$createElement))
+				}, _defineProperty(_React$createElement, 'title', _react2.default.createElement('img', { id: 'logo', style: { height: "100%" }, src: 'https://s3.amazonaws.com/s3raysev/images/LogotopWebImg_white.png ' })), _defineProperty(_React$createElement, 'iconElementRight', this.state.logged ? _react2.default.createElement(Logged, null) : _react2.default.createElement(Login, null)), _React$createElement))
 			);
 		}
 	}]);
