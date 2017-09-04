@@ -52,12 +52,13 @@ def home(request):
 		else:
 		 	print ('never mind')
 		 	user_default = {'gender' : 'F'}
+
+		# print ('all the users printed ',user_1.first_name, user_2.first_name, user_3.first_name)
 	
 
 
 
-		return render(request, 'homeapp/homepage.html', { 'total_users' : total_users, 'user_1':user_1, 'user_2': user_2,\
-			'user_3':user_3, 'user_default':user_default})
+		return render(request, 'homeapp/homepage.html', { 'total_users' : total_users, 'user_1':user_1, 'user_2': user_2, 'user_3':user_3, 'user_default':user_default})
 
 
 
@@ -116,7 +117,7 @@ def get_users(request):
 		print (total_users)
 
 		ids =[]
-		for item in users:
+		for item in users:	
 			id_ = item.id
 
 			ids.append(id_)
