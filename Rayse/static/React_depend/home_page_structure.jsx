@@ -20,8 +20,8 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
 import * as firebase from 'firebase'
 import background from '../css/homepage/background.css';
-import detect_order from '../js/helper_functions/detect_order.js'
-import DjangoCSRFToken from 'django-react-csrftoken'
+import detect_order from '../js/helper_functions/detect_order.js';
+import DjangoCSRFToken from 'django-react-csrftoken';
 
 
 
@@ -868,6 +868,8 @@ class Logged extends React.Component {
 
 
 
+
+
 // Logged.muiName = 'IconMenu';
 
 /**
@@ -923,7 +925,7 @@ class AppBarExampleComposition extends Component {
           title="Title"
            style={{height:"20%", textAlign:"center", marginBottom:"2%", marginTop:"0.2%", backgroundColor:'#a20000'}} //ffc1c1
     title={<img id="logo" style={{ height: "100%"}} src="https://s3.amazonaws.com/s3raysev/images/LogotopWebImg_white.png "/>} ///static/images/LogotopWebImg_white.png
-         
+
           iconElementRight={this.state.logged ? <Logged /> : <Login />}
         />
       </div>

@@ -155,7 +155,7 @@ AUTH_USER_MODEL = 'authentication.MyUser'
 
 # Set to true to switch to aws static deplyent. 
 # Run collectstatic to dump all static files on aws s3
-Production = True
+Production = False
 
 if Production == True:
     AWS_STORAGE_BUCKET_NAME = 's3raysev'

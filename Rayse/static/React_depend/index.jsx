@@ -8,6 +8,7 @@ var ReactDOM = require('react-dom')
 import Facebook_button from "./Facebook_login";
 import Home_page from "./home_page_structure.jsx"
 import loginform_styles from '../css/loginform/style.css';
+import Extra_details from './Extra_details/extra_details.jsx'
 // import LogoImg from './9e2494ad2b4a9a6374c4eabf4f6e242d.png';
 
 // import '../css/bootstrap.css';
@@ -75,7 +76,7 @@ class Login_form extends React.Component {
         return (
         	// Container = 'container'
             <div className={  loginform_styles.FoginForm  } >
-            <img id="logo" src="https://s3.amazonaws.com/s3raysev/images/LogotopWebImg.png"/> 
+            <img id="logo" src="https://s3.amazonaws.com/s3raysev/images/LogotopWebImg.png" /> 
             <div>
             	{this.Return_login_button()}
             	</div>
@@ -145,4 +146,22 @@ ReactDOM.render(
 catch(err) {
 	console.log('missed', err)
 }
+
+
+
+try{
+ReactDOM.render(
+	<div>
+	  <MuiThemeProvider>
+
+	<Extra_details/>
+	  </MuiThemeProvider>
+	</div>
+	, document.getElementById('extra_details'));
+
+}
+catch(err) {
+	console.log('missed', err)
+}
+
 
