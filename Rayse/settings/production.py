@@ -24,6 +24,7 @@ SECRET_KEY = 'm(g=-7__2jvuxkpw(^z3*x-o&n%-des*bet-1%u#rg3mdob9%7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+Production = True
 
 ALLOWED_HOSTS = ['rayse.com', 'rayse.herokuapp.com']
 
@@ -155,7 +156,7 @@ AUTH_USER_MODEL = 'authentication.MyUser'
 
 # Set to true to switch to aws static deplyent. 
 # Run collectstatic to dump all static files on aws s3
-Production = True
+
 
 if Production == True:
     AWS_STORAGE_BUCKET_NAME = 's3raysev'
