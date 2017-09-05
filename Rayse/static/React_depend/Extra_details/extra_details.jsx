@@ -63,7 +63,7 @@ class Form_ex extends React.Component {
   	}
   	else {
   		console.log('submitting')
-  		// document.Extra_details_data.submit()
+  		document.Extra_details_data.submit()
   	}
   	
   }
@@ -121,7 +121,7 @@ class Form_ex extends React.Component {
 
 
     </form>
-    <FlatButton label="Primary" primary={true} onClick={this.send_extra_details_to_backend.bind(this)} fullWidth={true} style={{color:'#a20000'}} />
+    <FlatButton label="Done" primary={true} onClick={this.send_extra_details_to_backend.bind(this)} fullWidth={true} style={{color:'#a20000'}} />
     </Row>
     
 
