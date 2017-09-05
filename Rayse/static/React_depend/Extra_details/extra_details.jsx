@@ -29,6 +29,7 @@ class Form_ex extends React.Component {
 	  	this.state = {
 		    Gender: 'Gender',
 		    Age:'',
+		    ERROR:'',
 		  };
 		}
 
@@ -52,8 +53,19 @@ class Form_ex extends React.Component {
   };
 
   send_extra_details_to_backend() {
-  	console.log('submitting')
-  	document.Extra_details_data.submit()
+  	
+  	if (this.state.Gender == "Gender"){
+  		this.setState({ERROR:'** Please select your gender'})
+
+  	}
+  	else if (this.state.Age == "") {
+  		this.setState({ERROR:'** Please select your age'})
+  	}
+  	else {
+  		console.log('submitting')
+  		// document.Extra_details_data.submit()
+  	}
+  	
   }
 
 
@@ -68,9 +80,10 @@ class Form_ex extends React.Component {
     
       
       <p>We just need some extra details from you</p>
+      <p style={{fontSize:10, color:'#a20000'}}>{this.state.ERROR}</p>
       </Row>
 	  <Row>
-	  <p>Gender</p>
+	  <p >Gender</p>
 
         <SelectField
          floatingLabelText=''
@@ -86,7 +99,7 @@ class Form_ex extends React.Component {
 
        </Row>
        <Row>
-        <p>Age</p>
+        <p >Age</p>
         <SelectField
         floatingLabelText={this.state.Age}
         floatingLabelFixed={false}

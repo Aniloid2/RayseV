@@ -102712,7 +102712,8 @@ var Form_ex = function (_React$Component) {
 
     _this.state = {
       Gender: 'Gender',
-      Age: ''
+      Age: '',
+      ERROR: ''
     };
     return _this;
   }
@@ -102738,8 +102739,15 @@ var Form_ex = function (_React$Component) {
   }, {
     key: 'send_extra_details_to_backend',
     value: function send_extra_details_to_backend() {
-      console.log('submitting');
-      document.Extra_details_data.submit();
+
+      if (this.state.Gender == "Gender") {
+        this.setState({ ERROR: '** Please select your gender' });
+      } else if (this.state.Age == "") {
+        this.setState({ ERROR: '** Please select your age' });
+      } else {
+        console.log('submitting');
+        // document.Extra_details_data.submit()
+      }
     }
 
     // <img id="logo" src="https://s3.amazonaws.com/s3raysev/images/LogotopWebImg.png"/> 
@@ -102757,6 +102765,11 @@ var Form_ex = function (_React$Component) {
             'p',
             null,
             'We just need some extra details from you'
+          ),
+          _react2.default.createElement(
+            'p',
+            { style: { fontSize: 10, color: '#a20000' } },
+            this.state.ERROR
           )
         ),
         _react2.default.createElement(
