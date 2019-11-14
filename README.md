@@ -1,6 +1,6 @@
-
-<img src="Updated/LogoWeb.png" align='middle 'alt="drawing" width="200"/>
-
+<p align="center">
+<img src="Updated/LogoWeb.png" 'alt="drawing" width="250"/>
+</p>
 A dating app project to prove some of my CS friends you don't need a computer science degree to build a fully functioning app.
 
 # Designs
