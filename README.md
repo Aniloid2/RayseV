@@ -1,7 +1,7 @@
 <p align="center">
 <img src="Updated/LogoWeb.png" 'alt="drawing" width="250"/>
 </p>
-A dating app project to prove some of my CS friends you don't need a computer science degree to build a fully functioning app.
+A dating app project, it used to be fully functioning until Facebook made some changes to their authentification policy and test user API.
 
 # Designs
 
